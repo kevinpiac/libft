@@ -1,0 +1,52 @@
+#******************************************************************************#
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2016/02/02 15:06:24 by kpiacent          #+#    #+#              #
+#    Updated: 2016/02/04 17:02:23 by kpiacent         ###   ########.fr        #
+#                                                                              #
+#******************************************************************************#
+
+CC = gcc
+FLAGS = -Wall -Wextra -Werror
+NAME = libft.a
+FILES = ft_putchar.c ft_putchar_fd.c ft_putstr.c ft_putstr_fd.c ft_putendl.c ft_putendl_fd.c \
+		ft_putnbr.c ft_putnbr_fd.c \
+\
+		ft_strlen.c ft_strcmp.c ft_strncmp.c \
+\
+		ft_islower.c ft_isupper.c ft_isaplha.c ft_isdigit.c ft_isalnum.c ft_isprint.c \
+\
+		ft_toupper.c ft_tolower.c ft_atoi.c
+
+OBJ = $(FILES:.c=.o)
+TMP = Makefile~ libft.h~ $(NAME)~ $(FILES:.c=.c~)
+
+all : $(NAME)
+
+$OBJ : $(FILES)
+		$(CC) $(FLAGS) -c $(FILES)
+
+$(NAME) : $(OBJ)
+		ar rc $(NAME) $(OBJ)
+		ranlib $(NAME)
+clean : 
+	rm -f $(OBJ) $(TMP)
+
+fclean : clean
+	rm -f $(NAME)
+
+re : fclean all
+
+test : 
+	gcc main.c -L. -lft
+
+testclean : 
+	rm -f a.out
+
+testre : testclean test
+
+.PHONY : clean fclean re
