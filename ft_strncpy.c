@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kevin <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/25 14:42:42 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/02/25 22:43:45 by kevin            ###   ########.fr       */
+/*   Created: 2016/02/25 22:43:52 by kevin             #+#    #+#             */
+/*   Updated: 2016/02/25 22:51:22 by kevin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcpy(char *dst, const char *src)
+char	*ft_strncpy(char *dst, const char *src, size_t n)
 {
 	int		i;
 
 	i = -1;
-	while (src[i++])
+	while (src[i++] && n--)
 		dst[i] = src[i];
 	return (dst);
 }
