@@ -1,34 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/25 13:44:42 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/02/25 16:48:27 by kpiacent         ###   ########.fr       */
+/*   Created: 2016/02/25 15:22:35 by kpiacent          #+#    #+#             */
+/*   Updated: 2016/02/25 16:41:14 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strstr(const char *big, const char *little)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	unsigned int	i;
-	unsigned int	j;
-
-	i = 0;
-	if (!little)
-		return ((char *)big);
-	while (big[i])
-	{
-		while (big[i + j] == little[j])
-		{
-			if (!little[j + 1])
-				return ((char *)(&big[i]));
-			j++;
-		}
-		i++;
-	}
-	return (NULL);
+	if (!dst)
+		return (NULL);
+	while (n--)
+		*((char *)dst + n) = *((char *)src + n);
+	return (dst);
 }

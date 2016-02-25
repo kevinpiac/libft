@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/03 10:37:12 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/02/25 14:59:59 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/02/25 17:22:48 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ int		ft_isprint(int c);
 ** STR / CHAR MANIPULATIONS
 */
 
+void	ft_striter(char *s, void *(f)(char *));
+
 int		ft_toupper(int c);
 int		ft_tolower(int c);
 int		ft_atoi(const char *s);
@@ -67,12 +69,23 @@ char	*ft_strcpy(char *dest, const char *src);
 
 void	*ft_memalloc(size_t size);
 void	*ft_memset(void *b, int c, size_t len);
+void	*ft_memcpy(void *dst, const void *src, size_t n);
 void	ft_memdel(void **ap);
 void	ft_strdel(char **as);
 void	ft_strclr(char *s);
+void	ft_bzero(void *s, size_t n);
 char	*ft_strnew(size_t size);
 
 #endif
+
+
+
+
+
+
+
+
+
 
 
 

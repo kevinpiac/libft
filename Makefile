@@ -6,7 +6,7 @@
 #    By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/02 15:06:24 by kpiacent          #+#    #+#              #
-#    Updated: 2016/02/25 14:49:55 by kpiacent         ###   ########.fr        #
+#    Updated: 2016/02/25 17:22:16 by kpiacent         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -16,13 +16,13 @@ NAME = libft.a
 FILES = ft_putchar.c ft_putchar_fd.c ft_putstr.c ft_putstr_fd.c ft_putendl.c ft_putendl_fd.c \
 		ft_putnbr.c ft_putnbr_fd.c \
 \
-		ft_strlen.c ft_strcmp.c ft_strncmp.c ft_strdup.c ft_strstr.c ft_strcpy.c \
+		ft_strlen.c ft_strcmp.c ft_strncmp.c ft_strdup.c ft_strstr.c ft_strcpy.c ft_striter.c \
 \
 		ft_islower.c ft_isupper.c ft_isaplha.c ft_isdigit.c ft_isalnum.c ft_isprint.c \
 \
 		ft_toupper.c ft_tolower.c ft_atoi.c ft_strcat.c ft_strncat.c \
 \
-		ft_memalloc.c ft_memset.c ft_memdel.c ft_strnew.c ft_strdel.c ft_strclr.c
+		ft_memalloc.c ft_memset.c ft_memdel.c ft_memcpy.c ft_strnew.c ft_strdel.c ft_strclr.c ft_bzero.c
 
 OBJ = $(FILES:.c=.o)
 TMP = Makefile~ libft.h~ $(NAME)~ $(FILES:.c=.c~)

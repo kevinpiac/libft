@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_striter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/25 13:44:42 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/02/25 16:48:27 by kpiacent         ###   ########.fr       */
+/*   Created: 2016/02/25 16:50:15 by kpiacent          #+#    #+#             */
+/*   Updated: 2016/02/25 16:58:10 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strstr(const char *big, const char *little)
+void	ft_striter(char *s, void *(f)(char *))
 {
 	unsigned int	i;
-	unsigned int	j;
 
 	i = 0;
-	if (!little)
-		return ((char *)big);
-	while (big[i])
+	while (s[i++])
 	{
-		while (big[i + j] == little[j])
-		{
-			if (!little[j + 1])
-				return ((char *)(&big[i]));
-			j++;
-		}
-		i++;
+		f(&s[i]);
 	}
-	return (NULL);
 }
+
+
+
+
+
+
+
+
+
+
