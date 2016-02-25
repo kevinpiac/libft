@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/03 10:37:12 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/02/25 22:49:32 by kevin            ###   ########.fr       */
+/*   Updated: 2016/02/25 23:02:20 by kevin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int		ft_strcmp(const char *s1, const char *s2);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 
 char	*ft_strstr(const char *big, const char *little);
-
+char	*ft_strnstr(const char *big, const char *little, size_t n);
 /*
 ** STR / CHAR BOOLEAN ?
 */
