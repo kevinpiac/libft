@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/03 10:37:12 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/02/25 19:50:52 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/02/25 20:21:01 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,17 +79,5 @@ void	ft_strclr(char *s);
 void	ft_bzero(void *s, size_t n);
 char	*ft_strnew(size_t size);
 
+int		ft_memcmp(const void *s1, const void *s2, size_t n);
 #endif
-
-
-
-
-
-
-
-
-
-
-
-
-
