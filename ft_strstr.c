@@ -1,36 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/04 16:20:15 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/02/24 18:53:19 by kpiacent         ###   ########.fr       */
+/*   Created: 2016/02/24 18:42:48 by kpiacent          #+#    #+#             */
+/*   Updated: 2016/02/25 11:31:19 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_atoi(const char *s)
+char	*strstr (const char *big, const char *little)
 {
-	int				sign;
-	int				res;
 	unsigned int	i;
+	unsigned int	j;
 
 	i = 0;
-	res = 0;
-	sign = 1;
-	while (!ft_isprint(s[i]) || s[i] == ' ')
-		i++;
-	if (s[i] == '-')
-		sign = -1;
-	if (s[i] == '-' || s[i] == '+')
-		i++;
-	while (ft_isdigit(s[i]))
+	if (!little)
+		return (big);
+	while (big[i])
 	{
-		res = res * 10 + (s[i] - '0');
+		while (big[i] == little[j])
+		{
+
+		}
 		i++;
 	}
-	return (res * sign);
 }
+
+abjejdeckjewhlqwejhleqwkdhj

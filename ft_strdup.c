@@ -1,36 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/04 16:20:15 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/02/24 18:53:19 by kpiacent         ###   ########.fr       */
+/*   Created: 2016/02/24 16:37:33 by kpiacent          #+#    #+#             */
+/*   Updated: 2016/02/24 16:37:37 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_atoi(const char *s)
+char	*ft_strdup(const char *s1)
 {
-	int				sign;
-	int				res;
-	unsigned int	i;
+	char	*s2;
+	int		i;
 
-	i = 0;
-	res = 0;
-	sign = 1;
-	while (!ft_isprint(s[i]) || s[i] == ' ')
-		i++;
-	if (s[i] == '-')
-		sign = -1;
-	if (s[i] == '-' || s[i] == '+')
-		i++;
-	while (ft_isdigit(s[i]))
+	s2 = ft_memalloc(ft_strlen(s1));
+	while (s1[i])
 	{
-		res = res * 10 + (s[i] - '0');
+		s2[i] = s1[i];
 		i++;
 	}
-	return (res * sign);
+	s2[i] = '\0';
+	return (s2);
 }

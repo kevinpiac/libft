@@ -1,36 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/04 16:20:15 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/02/24 18:53:19 by kpiacent         ###   ########.fr       */
+/*   Created: 2016/02/24 16:38:36 by kpiacent          #+#    #+#             */
+/*   Updated: 2016/02/24 16:40:13 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_atoi(const char *s)
+char	*ft_strcat(char *s1, const char *s2)
 {
-	int				sign;
-	int				res;
-	unsigned int	i;
+	size_t		i;
+	size_t		j;
 
-	i = 0;
-	res = 0;
-	sign = 1;
-	while (!ft_isprint(s[i]) || s[i] == ' ')
-		i++;
-	if (s[i] == '-')
-		sign = -1;
-	if (s[i] == '-' || s[i] == '+')
-		i++;
-	while (ft_isdigit(s[i]))
-	{
-		res = res * 10 + (s[i] - '0');
-		i++;
-	}
-	return (res * sign);
+	i = ft_strlen(s1);
+	j = 0;
+	while (s2[j])
+		s1[i++] = s2[j++];
+	s1[i] = '\0';
+	return (s1);
 }

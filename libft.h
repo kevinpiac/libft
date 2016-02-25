@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/03 10:37:12 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/02/04 16:38:16 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/02/25 11:25:17 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ int		ft_strlen(const char *s);
 int		ft_strcmp(const char *s1, const char *s2);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 
+char	*ft_strstr(const char *big, const char *little);
+
 /*
 ** STR / CHAR BOOLEAN ?
 */
@@ -55,5 +57,27 @@ int		ft_toupper(int c);
 int		ft_tolower(int c);
 int		ft_atoi(const char *s);
 
+char	*ft_strcat(char *s1, const char *s2);
+char	*ft_strncat(char *s1, const char *s2, size_t n);
+char	*ft_strdup(const char *s1);
+
+/*
+** MEMORY ALLOCATION / MANIPULATION
+*/
+
+void	*ft_memalloc(size_t size);
+void	*ft_memset(void *b, int c, size_t len);
+void	ft_memdel(void **ap);
+void	ft_strdel(char **as);
+void	ft_strclr(char *s);
+char	*ft_strnew(size_t size);
 
 #endif
+
+
+
+
+
+
+
+
