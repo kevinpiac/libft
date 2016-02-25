@@ -5,29 +5,30 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/24 18:42:48 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/02/25 11:31:19 by kpiacent         ###   ########.fr       */
+/*   Created: 2016/02/25 13:44:42 by kpiacent          #+#    #+#             */
+/*   Updated: 2016/02/25 14:29:11 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*strstr (const char *big, const char *little)
+char	*ft_strstr (const char *big, const char *little)
 {
 	unsigned int	i;
 	unsigned int	j;
 
 	i = 0;
 	if (!little)
-		return (big);
+		return ((char *)big);
 	while (big[i])
 	{
-		while (big[i] == little[j])
+		while (big[i + j] == little[j])
 		{
-
+			if (!little[j + 1])
+				return ((char *)(&big[i]));
+			j++;
 		}
 		i++;
 	}
+	return (NULL);
 }
-
-abjejdeckjewhlqwejhleqwkdhj
