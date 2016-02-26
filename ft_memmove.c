@@ -1,19 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striter.c                                       :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kevin <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/25 16:50:15 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/02/26 22:47:13 by kevin            ###   ########.fr       */
+/*   Created: 2016/02/26 18:13:16 by kevin             #+#    #+#             */
+/*   Updated: 2016/02/26 18:20:23 by kevin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_striter(char *s, void (*f)(char *))
+void	*ft_memmove(void *s1, const void *s2, size_t n)
 {
-	while (*s)
-		f(s++);
+	unsigned char tmp[n];
+
+	ft_memcpy(tmp, s2, n);
+	ft_memcpy(s1, tmp, n);
+	return (s1);
 }

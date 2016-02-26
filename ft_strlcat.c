@@ -1,19 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striter.c                                       :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kevin <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/25 16:50:15 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/02/26 22:47:13 by kevin            ###   ########.fr       */
+/*   Created: 2016/02/26 18:21:32 by kevin             #+#    #+#             */
+/*   Updated: 2016/02/26 18:25:08 by kevin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_striter(char *s, void (*f)(char *))
+char	*ft_strlcat(char *s1, const char *s2, size_t n)
 {
-	while (*s)
-		f(s++);
+	size_t		i;
+	size_t		j;
+
+	i = ft_strlen(s1);
+	j = 0;
+	while (s2[j] && i < n)
+		s1[i++] = s2[j++];
+	s1[i + 1] = '\0';
+	return (s1);
 }
