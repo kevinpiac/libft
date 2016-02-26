@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/03 10:37:12 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/02/26 10:52:39 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/02/26 11:47:20 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # define ABS(x) ((x > 0) ? x : -x)
+
 /*
 ** FUNCTIONS TO PRINT
 */
@@ -69,7 +70,7 @@ char	*ft_strncat(char *s1, const char *s2, size_t n);
 char	*ft_strdup(const char *s1);
 char	*ft_strcpy(char *dest, const char *src);
 char	*ft_strncpy(char *dest, const char *src, size_t n);
-
+char	*ft_strjoin(const char *s1, const char *s2);
 /*
 ** MEMORY ALLOCATION / MANIPULATION
 */
