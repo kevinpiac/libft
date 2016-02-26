@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/25 19:46:03 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/02/25 20:01:09 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/02/26 09:39:07 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	while (i < n)
 	{
 		if (((unsigned char *)s)[i] == (unsigned char)c)
-		return ((void *)s + i);
+			return ((void *)s + i);
 		i++;
 	}
 	return (NULL);
