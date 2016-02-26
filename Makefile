@@ -6,7 +6,7 @@
 #    By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/02 15:06:24 by kpiacent          #+#    #+#              #
-#    Updated: 2016/02/26 13:36:15 by kpiacent         ###   ########.fr        #
+#    Updated: 2016/02/26 13:51:47 by kpiacent         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -16,7 +16,7 @@ NAME = libft.a
 FILES = ft_putchar.c ft_putchar_fd.c ft_putstr.c ft_putstr_fd.c ft_putendl.c ft_putendl_fd.c \
 		ft_putnbr.c ft_putnbr_fd.c \
 \
-		ft_strlen.c ft_strcmp.c ft_strncmp.c ft_strdup.c ft_strstr.c ft_strnstr.c ft_strcpy.c ft_strncpy.c ft_striter.c ft_strchr.c ft_strrchr.c ft_strjoin.c ft_strtrim.c \
+		ft_strlen.c ft_strcmp.c ft_strncmp.c ft_strdup.c ft_strstr.c ft_strnstr.c ft_strcpy.c ft_strncpy.c ft_striter.c ft_strchr.c ft_strrchr.c ft_strjoin.c ft_strtrim.c ft_strsub.c \
 \
 		ft_islower.c ft_isupper.c ft_isaplha.c ft_isdigit.c ft_isalnum.c ft_isprint.c ft_isascii.c ft_isspace.c \
 \

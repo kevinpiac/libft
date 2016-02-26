@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/24 16:39:01 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/02/26 13:54:00 by kpiacent         ###   ########.fr       */
+/*   Created: 2016/02/26 13:40:49 by kpiacent          #+#    #+#             */
+/*   Updated: 2016/02/26 13:56:29 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "stdio.h"
 
-char	*ft_strnew(size_t size)
+char	*ft_strsub(const char *s, unsigned int start, size_t len)
 {
-	char			*s;
+	char			*str;
 	unsigned int	i;
 
-	if (!(s = ft_memalloc(size + 1)))
+	i = 0;
+	if (!(str = ft_strnew(len)))
 		return (NULL);
-	s = ft_memset(s, '\0', size + 1);
-	return (s);
+	while (i < len)
+	{
+		str[i] = s[start + i];
+		i++;
+	}
+	return (str);
 }

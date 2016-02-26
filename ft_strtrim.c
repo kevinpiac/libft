@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/26 11:48:57 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/02/26 13:38:07 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/02/26 13:57:01 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char	*ft_strtrim(char const *s)
 	len = 0;
 	while (s[++i])
 		ft_isspace(s[i]) ? 0 : len++;
-	if (!(str = ft_memalloc(len + 1)))
+	if (!(str = ft_strnew(len)))
 		return (NULL);
 	i = 0;
 	while (s[i])
@@ -36,6 +36,5 @@ char	*ft_strtrim(char const *s)
 		}
 		i++;
 	}
-	str[len] = '\0';
 	return (str);
 }
