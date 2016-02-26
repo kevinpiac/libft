@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/03 10:37:12 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/02/26 09:33:26 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/02/26 10:52:39 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define LIBFT_H
 # include <unistd.h>
 # include <stdlib.h>
-
+# define ABS(x) ((x > 0) ? x : -x)
 /*
 ** FUNCTIONS TO PRINT
 */
@@ -63,6 +63,7 @@ int		ft_toupper(int c);
 int		ft_tolower(int c);
 int		ft_atoi(const char *s);
 
+char	*ft_itoa(int n);
 char	*ft_strcat(char *s1, const char *s2);
 char	*ft_strncat(char *s1, const char *s2, size_t n);
 char	*ft_strdup(const char *s1);

@@ -6,7 +6,7 @@
 #    By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/02 15:06:24 by kpiacent          #+#    #+#              #
-#    Updated: 2016/02/26 09:33:07 by kpiacent         ###   ########.fr        #
+#    Updated: 2016/02/26 09:48:31 by kpiacent         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -20,7 +20,7 @@ FILES = ft_putchar.c ft_putchar_fd.c ft_putstr.c ft_putstr_fd.c ft_putendl.c ft_
 \
 		ft_islower.c ft_isupper.c ft_isaplha.c ft_isdigit.c ft_isalnum.c ft_isprint.c ft_isascii.c \
 \
-		ft_toupper.c ft_tolower.c ft_atoi.c ft_strcat.c ft_strncat.c \
+		ft_toupper.c ft_tolower.c ft_atoi.c ft_itoa.c ft_strcat.c ft_strncat.c \
 \
 		ft_memalloc.c ft_memset.c ft_memdel.c ft_memcpy.c ft_memccpy.c ft_strnew.c ft_strdel.c ft_strclr.c ft_bzero.c ft_memchr.c ft_memcmp.c
 
