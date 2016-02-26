@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/03 10:37:12 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/02/26 13:52:21 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/02/26 14:09:41 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int		ft_isalnum(int c);
 int		ft_isprint(int c);
 int		ft_isascii(int c);
 int		ft_isspace(int c);
-
+int		ft_strequ(char const *s1, char const *s2);
 /*
 ** STR / CHAR MANIPULATIONS
 */
