@@ -6,7 +6,7 @@
 #    By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/02 15:06:24 by kpiacent          #+#    #+#              #
-#    Updated: 2016/02/27 16:34:26 by kpiacent         ###   ########.fr        #
+#    Updated: 2016/02/27 17:54:38 by kpiacent         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -18,7 +18,7 @@ FILES = ft_putchar.c ft_putchar_fd.c ft_putstr.c ft_putstr_fd.c ft_putendl.c ft_
 \
 		ft_strlen.c ft_strlcat.c ft_strcmp.c ft_strncmp.c ft_strdup.c ft_strstr.c ft_strnstr.c ft_strcpy.c ft_strncpy.c ft_striter.c ft_striteri.c ft_strchr.c ft_strrchr.c ft_strjoin.c ft_strtrim.c ft_strsub.c ft_strmap.c ft_strmapi.c ft_strsplit.c \
 \
-		ft_islower.c ft_isupper.c ft_isaplha.c ft_isdigit.c ft_isalnum.c ft_isprint.c ft_isascii.c ft_isspace.c ft_strequ.c ft_strnequ.c \
+		ft_islower.c ft_isupper.c ft_isaplha.c ft_isdigit.c ft_isalnum.c ft_isprint.c ft_isascii.c ft_strequ.c ft_strnequ.c ft_istoskip.c \
 \
 		ft_toupper.c ft_tolower.c ft_atoi.c ft_itoa.c ft_strcat.c ft_strncat.c \
 \
