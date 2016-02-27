@@ -6,7 +6,7 @@
 #    By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/02 15:06:24 by kpiacent          #+#    #+#              #
-#    Updated: 2016/02/26 22:50:06 by kevin            ###   ########.fr        #
+#    Updated: 2016/02/27 09:35:52 by kpiacent         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -44,7 +44,7 @@ fclean : clean
 re : fclean all
 
 test :
-	gcc -o a.out main.c -L. -lft && ./a.out
+	gcc -o a.out main.c -L ./ -lft && ./a.out
 
 testclean :
 	rm -f a.out

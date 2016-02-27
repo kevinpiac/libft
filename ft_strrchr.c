@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/26 09:31:34 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/02/26 09:37:30 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/02/27 10:27:38 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,23 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	unsigned int	len;
+	size_t	len;
 
-	len = ft_strlen(s);
+	len = ft_strlen(s) + 1;
 	while (len--)
 	{
 		if (s[len] == (char)c)
-			return ((char *)s + len);
+			return ((char *)&s[len]);
 	}
 	return (NULL);
 }
+
+
+
+
+
+
+
+
+
+

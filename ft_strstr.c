@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/25 13:44:42 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/02/25 23:11:25 by kevin            ###   ########.fr       */
+/*   Updated: 2016/02/27 09:41:18 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strstr(const char *big, const char *little)
 
 	i = 0;
 	j = 0;
-	if (!little)
+	if (!little || *little == '\0')
 		return ((char *)big);
 	while (big[i])
 	{
@@ -33,3 +33,11 @@ char	*ft_strstr(const char *big, const char *little)
 	}
 	return (NULL);
 }
+
+
+
+
+
+
+
+

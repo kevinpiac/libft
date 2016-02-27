@@ -6,7 +6,7 @@
 /*   By: kevin <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/25 22:43:52 by kevin             #+#    #+#             */
-/*   Updated: 2016/02/25 22:51:22 by kevin            ###   ########.fr       */
+/*   Updated: 2016/02/27 10:42:50 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,12 @@ char	*ft_strncpy(char *dst, const char *src, size_t n)
 {
 	int		i;
 
-	i = -1;
-	while (src[i++] && n--)
+	i = 0;
+	while (n--)
+	{
 		dst[i] = src[i];
+		if (!dst[i++])
+			dst[i] = '\0';
+	}
 	return (dst);
 }

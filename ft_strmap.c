@@ -1,26 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevin <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/26 18:21:32 by kevin             #+#    #+#             */
-/*   Updated: 2016/02/27 09:19:20 by kpiacent         ###   ########.fr       */
+/*   Created: 2016/02/27 09:16:26 by kpiacent          #+#    #+#             */
+/*   Updated: 2016/02/27 09:16:36 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *s1, const char *s2, size_t n)
-{
-	size_t		i;
-	size_t		j;
 
-	i = ft_strlen(s1);
-	j = 0;
-	while (s2[j] && i < n)
-		s1[i++] = s2[j++];
-	s1[i + 1] = '\0';
-	return (i + n);
-}

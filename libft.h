@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/03 10:37:12 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/02/26 22:52:33 by kevin            ###   ########.fr       */
+/*   Updated: 2016/02/27 09:21:48 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int		ft_atoi(const char *s);
 
 char	*ft_itoa(int n);
 char	*ft_strcat(char *s1, const char *s2);
-char	*ft_strlcat(char *s1, const char *s2, size_t n);
+size_t	ft_strlcat(char *s1, const char *s2, size_t n);
 char	*ft_strncat(char *s1, const char *s2, size_t n);
 char	*ft_strdup(const char *s1);
 char	*ft_strcpy(char *dest, const char *src);
