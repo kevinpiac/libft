@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/26 14:19:21 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/02/26 15:52:08 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/02/27 16:34:55 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ char				**ft_strsplit(char const *s, char c)
 	i = 0;
 	while (count--)
 	{
-		ft_getword(s[], c);
+		ft_getword(s[count--], c);
 	}
 	char **st;
 	*st = "coucou";

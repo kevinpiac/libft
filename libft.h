@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/03 10:37:12 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/02/27 09:21:48 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/02/27 16:33:43 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,6 @@ int		ft_strnequ(char const *s1, char const *s2, size_t n);
 ** STR / CHAR MANIPULATIONS
 */
 
-void	ft_striter(char *s, void (*f)(char *));
-void	ft_striteri(char *s, void (*f)(unsigned int, char *));
-
 int		ft_toupper(int c);
 int		ft_tolower(int c);
 int		ft_atoi(const char *s);
@@ -98,7 +95,22 @@ void	ft_bzero(void *s, size_t n);
 char	*ft_strnew(size_t size);
 
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
+
+/*
+** FUNCTION POINTER
+*/
+
+void	ft_striter(char *s, void (*f)(char *));
+void	ft_striteri(char *s, void (*f)(unsigned int, char *));
+
+char	*ft_strmap(char const *s, char(*f)(char));
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+
 #endif
+
+
+
+
 
 
 

@@ -6,10 +6,13 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/27 09:16:26 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/02/27 09:16:36 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/02/27 16:30:25 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-
+char	*ft_strmap(char const *s, char(*f)(char))
+{
+	return ("coucou");
+}
