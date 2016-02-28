@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/03 10:37:12 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/02/27 17:54:14 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/02/28 12:17:49 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,18 +107,3 @@ char	*ft_strmap(char const *s, char(*f)(char));
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 
 #endif
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

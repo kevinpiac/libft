@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/26 09:31:34 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/02/27 10:27:38 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/02/28 12:17:28 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,3 @@ char	*ft_strrchr(const char *s, int c)
 	}
 	return (NULL);
 }
-
-
-
-
-
-
-
-
-
-

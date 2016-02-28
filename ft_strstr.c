@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/25 13:44:42 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/02/27 09:41:18 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/02/28 12:20:03 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,3 @@ char	*ft_strstr(const char *big, const char *little)
 	}
 	return (NULL);
 }
-
-
-
-
-
-
-
-

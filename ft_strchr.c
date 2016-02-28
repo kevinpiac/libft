@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/26 08:57:26 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/02/27 10:23:21 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/02/28 12:21:36 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 char	*ft_strchr(const char *s, int c)
 {
 	size_t		len;
+
 	len = ft_strlen(s) + 1;
 	while (len--)
 	{
