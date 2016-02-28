@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/27 16:20:52 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/02/27 16:20:55 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/02/28 18:37:29 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,11 @@
 size_t	ft_strlcat(char *s1, const char *s2, size_t n)
 {
 	size_t		i;
-	size_t		j;
 
 	i = ft_strlen(s1);
-	j = 0;
-	while (s2[j] && i < n)
-		s1[i++] = s2[j++];
-	s1[i + 1] = '\0';
+	s2 + i;
+	while (*s2 && n)
+		*s1++ = *s2++;
+	s1 = '\0';
 	return (i + n);
 }
