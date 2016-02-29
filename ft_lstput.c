@@ -1,18 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_lstput.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/04 10:50:22 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/02/29 11:15:20 by kpiacent         ###   ########.fr       */
+/*   Created: 2016/02/29 10:03:54 by kpiacent          #+#    #+#             */
+/*   Updated: 2016/02/29 10:56:44 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr(char const *s)
+void	ft_lstput(t_list *lst)
 {
-	write(1, s, ft_strlen);
+	while (lst)
+	{
+		write(1, lst->content, lst->content_size);
+		lst = lst->next;
+	}
 }
