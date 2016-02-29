@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/04 10:50:22 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/02/29 11:15:20 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/02/29 17:19:34 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	ft_putstr(char const *s)
 {
-	write(1, s, ft_strlen);
+	write(1, s, ft_strlen(s));
 }
