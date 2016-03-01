@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/26 09:42:54 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/02/28 18:27:39 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/03/01 08:22:27 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	*ft_itoa(int n)
 		return ("-2147483648");
 	while (tmp /= 10)
 		len++;
-	if(!(res = ft_strnew(len + 1 + neg)))
+	if (!(res = ft_strnew(len + 1 + neg)))
 		return (NULL);
 	if (neg)
 		res[0] = '-';

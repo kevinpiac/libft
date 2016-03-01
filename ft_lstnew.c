@@ -6,11 +6,12 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/28 19:29:53 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/02/29 11:26:39 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/03/01 08:27:34 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 t_list		*ft_lstnew(void *content, size_t content_size)
 {
 	t_list *list;
