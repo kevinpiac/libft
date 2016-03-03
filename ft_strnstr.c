@@ -6,7 +6,7 @@
 /*   By: kevin <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/25 22:54:44 by kevin             #+#    #+#             */
-/*   Updated: 2016/02/27 12:07:27 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/03/03 17:28:43 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t n)
 	unsigned int	j;
 
 	i = 0;
-	if (!little || *little == '\0')
+	if (!*little)
 		return ((char *)big);
 	while (big[i] && n)
 	{
