@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/28 20:09:23 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/03/03 13:21:50 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/03/04 08:09:58 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_list		*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 	t_list	*tmplst;
 
 	newlst = ft_lstnew(NULL, 0);
-0	tmplst = newlst;
+	tmplst = newlst;
 	while (lst)
 	{
 		tmplst = f(lst);

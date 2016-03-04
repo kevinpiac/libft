@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/25 13:44:42 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/03/03 17:26:33 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/03/04 08:11:01 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ char	*ft_strstr(const char *big, const char *little)
 			littlecp++;
 			if (!*littlecp)
 				return ((char *)big);
-
 		}
 		big++;
 	}
