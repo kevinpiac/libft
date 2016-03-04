@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_lstaddback.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevin <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/26 18:13:16 by kevin             #+#    #+#             */
-/*   Updated: 2016/03/04 08:44:56 by kpiacent         ###   ########.fr       */
+/*   Created: 2016/03/04 09:59:23 by kpiacent          #+#    #+#             */
+/*   Updated: 2016/03/04 10:25:51 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *s1, const void *s2, size_t n)
+void	ft_lstaddback(t_list **alst, t_list *new)
 {
-	unsigned char tmp[n];
-
-	ft_memcpy(tmp, s2, n);
-	ft_memcpy(s1, tmp, n);
-	return (s1);
+	if (*alst == NULL)
+	{
+		*alst = ft_lstnew(NULL, 0);
+		*alst = new;
+		(*alst)->next = NULL;
+		return ;
+	}
+	while ((*alst)->next)
+		*alst = (*alst)->next;
+	if (*alst && new)
+		(*alst)->next = new;
 }

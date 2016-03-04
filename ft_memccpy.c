@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/25 18:50:37 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/03/03 13:19:08 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/03/04 08:54:52 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
-	int				i;
+	size_t			i;
 	unsigned char	*s1;
 	unsigned char	*s2;
 
