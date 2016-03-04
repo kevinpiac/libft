@@ -6,23 +6,24 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/04 09:59:23 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/03/04 10:25:51 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/03/04 12:52:34 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 void	ft_lstaddback(t_list **alst, t_list *new)
 {
+	t_list	*alstcp;
+
+	alstcp = *alst;
 	if (*alst == NULL)
 	{
-		*alst = ft_lstnew(NULL, 0);
-		*alst = new;
-		(*alst)->next = NULL;
+		*alst = ft_lstnew(new->content, new->content_size);
 		return ;
 	}
-	while ((*alst)->next)
-		*alst = (*alst)->next;
-	if (*alst && new)
-		(*alst)->next = new;
+	while (alstcp->next)
+		alstcp = alstcp->next;
+	alstcp->next = new;
 }

@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/28 19:29:53 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/03/04 09:24:19 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/03/04 12:58:36 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ t_list		*ft_lstnew(void const *content, size_t content_size)
 	}
 	else
 	{
-		if(!(contentcp = (void *)ft_memalloc(content_size)))
+		if (!(contentcp = (void *)ft_memalloc(content_size)))
 		{
 			free(list);
 			return (NULL);
