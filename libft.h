@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/03 10:37:12 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/03/05 18:33:01 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/03/06 11:03:39 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,9 @@ t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 */
 
 void				ft_bitprint(int i);
-void				ft_bitsetfour(int *i, int val, size_t index);
+void				ft_bitsetfour(int *i, int val, unsigned int index);
 
-int					ft_bitgetfour(int i, size_t index);
+int					ft_bitgetfour(int i, unsigned int index);
 
 /*
 ** FUNCTIONS TO PRINT
