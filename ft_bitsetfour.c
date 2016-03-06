@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/05 18:28:04 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/03/05 18:38:54 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/03/05 20:47:20 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	ft_bitsetfour(int *i, int val, size_t index)
 	int		n;
 
 	n = *i;
+	n &= ~(15 << index * 4);
 	n |= (val << index * 4);
 	*i = n;
 }
