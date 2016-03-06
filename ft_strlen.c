@@ -6,13 +6,13 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/04 11:19:52 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/02/28 11:21:04 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/03/06 11:25:21 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strlen(const char *s)
+size_t		ft_strlen(const char *s)
 {
 	int		i;
 

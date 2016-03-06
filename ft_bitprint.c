@@ -6,15 +6,15 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/05 17:16:59 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/03/06 09:57:54 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/03/06 11:26:46 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bitprint(int i)
+void	ft_bitprint(unsigned int i)
 {
-	int		j;
+	int	j;
 
 	j = 31;
 	while (j >= 0)

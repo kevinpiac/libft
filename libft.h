@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/03 10:37:12 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/03/06 11:03:39 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/03/06 11:24:59 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,10 @@ t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 ** BIT OPERATIONS
 */
 
-void				ft_bitprint(int i);
-void				ft_bitsetfour(int *i, int val, unsigned int index);
+void				ft_bitprint(unsigned int i);
+void				ft_bitsetfour(unsigned int *i, unsigned int val, unsigned int index);
 
-int					ft_bitgetfour(int i, unsigned int index);
+unsigned int		ft_bitgetfour(unsigned int i, unsigned int index);
 
 /*
 ** FUNCTIONS TO PRINT
@@ -64,7 +64,7 @@ void				ft_putnbr_fd(int n, int fd);
 ** GET INFORMATIONS ABOUT STR / CHAR
 */
 
-int					ft_strlen(const char *s);
+size_t				ft_strlen(const char *s);
 int					ft_strcmp(const char *s1, const char *s2);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 
