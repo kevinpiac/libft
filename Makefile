@@ -6,7 +6,7 @@
 #    By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/02 15:06:24 by kpiacent          #+#    #+#              #
-#    Updated: 2016/03/07 13:49:28 by kpiacent         ###   ########.fr        #
+#    Updated: 2016/04/13 19:28:07 by kpiacent         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -47,17 +47,16 @@ TMP = Makefile~ libft.h~ $(NAME)~ $(FILES:.c=.c~)
 
 all : $(NAME)
 
-$OBJ : $(FILES)
-	$(CC) $(FLAGS) -c $(FILES)
-
-$(NAME) : $(OBJ)
-	ar rc $(NAME) $(OBJ)
-	ranlib $(NAME)
+$(NAME) :
+	@$(CC) $(FLAGS) -c $(FILES) && ar rc $(NAME) $(OBJ)
+	@ranlib $(NAME)
+	@echo "Compiling the libft:		DONE!"
 clean :
-	rm -f $(OBJ) $(TMP)
-
+	@rm -f $(OBJ) $(TMP)
+	@echo "Removing all files:		DONE!"
 fclean : clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
+	@echo "Removing libft.a:		DONE!"
 
 re : fclean all
 
