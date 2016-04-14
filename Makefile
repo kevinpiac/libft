@@ -6,7 +6,7 @@
 #    By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/02 15:06:24 by kpiacent          #+#    #+#              #
-#    Updated: 2016/04/13 19:28:07 by kpiacent         ###   ########.fr        #
+#    Updated: 2016/04/14 22:03:01 by kpiacent         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -36,11 +36,16 @@ FILES = ft_putchar.c ft_putchar_fd.c ft_putstr.c \
 	ft_memcpy.c ft_memccpy.c ft_strnew.c \
 	ft_strdel.c ft_strclr.c ft_bzero.c \
 	ft_memchr.c ft_memcmp.c ft_memmove.c \
+	ft_realloc.c \
 \
 	ft_lstnew.c ft_lstdelone.c ft_lstdel.c \
-	ft_lstadd.c ft_lstiter.c ft_lstmap.c ft_lstput.c ft_lstputendl.c ft_lstaddback.c \
+	ft_lstadd.c ft_lstiter.c ft_lstmap.c \
+	ft_lstput.c ft_lstputendl.c ft_lstaddback.c \
 \
-	ft_bitprint.c ft_bitgetfour.c ft_bitsetfour.c ft_bitgetoctal.c ft_bitsetoctal.c
+	ft_bitprint.c ft_bitgetfour.c ft_bitsetfour.c \
+	ft_bitgetoctal.c ft_bitsetoctal.c \
+\
+	ft_vectnew.c ft_vectadd.c
 
 OBJ = $(FILES:.c=.o)
 TMP = Makefile~ libft.h~ $(NAME)~ $(FILES:.c=.c~)

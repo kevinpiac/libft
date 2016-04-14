@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/03 10:37:12 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/03/15 17:24:42 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/04/14 23:09:47 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,31 @@
 # include <stdlib.h>
 # define ABS(x) ((x > 0) ? x : -x)
 
+/*
+** VECTORS
+*/
+# define VECTOR_CAPACITY 10
+
+typedef struct		s_vector
+{
+	void			**items;
+	int				capacity;
+	int				total;
+}					t_vector;
+
+t_vector			*ft_vectnew(void);
+void				ft_vectadd(t_vector *v, void *item);
+
+/*
+** LINKED LISTS
+*/
+
 typedef struct		s_list
 {
 	void			*content;
 	size_t			content_size;
 	struct s_list	*next;
 }					t_list;
-
-/*
-** LINKED LISTS
-*/
 
 t_list				*ft_lstnew(void const *content, size_t content_size);
 
@@ -123,6 +138,7 @@ void				*ft_memcpy(void *dst, const void *src, size_t n);
 void				*ft_memccpy(void *dst, const void *src, int c, size_t n);
 void				*ft_memmove(void *s, const void *s2, size_t n);
 void				*ft_memchr(const void *s, int c, size_t n);
+void				*ft_realloc(void *ptr, size_t size, size_t newsize);
 void				ft_memdel(void **ap);
 void				ft_strdel(char **as);
 void				ft_strclr(char *s);
@@ -142,3 +158,4 @@ char				*ft_strmap(char const *s, char(*f)(char));
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 
 #endif
+
