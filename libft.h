@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/03 10:37:12 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/04/15 10:16:48 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/04/15 12:01:00 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ t_vector			*ft_vectnew(void);
 void				ft_vectadd(t_vector *v, void *item);
 void				ft_vectaddfront(t_vector *v, void *item);
 void				ft_vectresize(t_vector *v);
+void				ft_vectshowall(t_vector *v);
 
 /*
 ** LINKED LISTS
