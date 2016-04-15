@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/03 10:37:12 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/04/15 15:28:59 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/04/15 21:10:18 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void				ft_vectresize(t_vector *v);
 void				ft_vectshowall(t_vector *v);
 void				ft_vectinsert(t_vector *v, void *item, int index);
 void				ft_vectdelone(t_vector *v, int index);
+void				ft_vectforeach(t_vector *v, void *(*f)(void *));
 
 /*
 ** LINKED LISTS

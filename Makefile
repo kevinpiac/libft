@@ -6,7 +6,7 @@
 #    By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/02 15:06:24 by kpiacent          #+#    #+#              #
-#    Updated: 2016/04/15 15:29:20 by kpiacent         ###   ########.fr        #
+#    Updated: 2016/04/15 21:00:15 by kpiacent         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -47,7 +47,8 @@ FILES = ft_putchar.c ft_putchar_fd.c ft_putstr.c \
 \
 	ft_vectnew.c ft_vectresize.c ft_vectadd.c \
 	ft_vectaddfront.c ft_vectshowall.c ft_vectinsert.c \
-	ft_vectget.c ft_vectset.c ft_vectdelone.c
+	ft_vectget.c ft_vectset.c ft_vectdelone.c \
+	ft_vectforeach.c
 
 OBJ = $(FILES:.c=.o)
 TMP = Makefile~ libft.h~ $(NAME)~ $(FILES:.c=.c~)
