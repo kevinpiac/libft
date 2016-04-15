@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vectinsert.c                                    :+:      :+:    :+:   */
+/*   ft_vectdelone.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/15 12:05:38 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/04/15 15:17:55 by kpiacent         ###   ########.fr       */
+/*   Created: 2016/04/15 14:39:14 by kpiacent          #+#    #+#             */
+/*   Updated: 2016/04/15 15:37:33 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_vectinsert(t_vector *v, void *item, int index)
+void	ft_vectdelone(t_vector *v, int index)
 {
 	int		i;
 
-	ft_vectresize(v);
-	i = v->total + 1;
-	while (i && i > index)
+	if (index > v->total)
+		return ;
+	if (index == v->total)
+		v->items[index] = NULL;
+	else
 	{
-		v->items[i] = v->items[i - 1];
-		i--;
+		i = index;
+		while (i < v->total - 1)
+		{
+			v->items[i] = v->items[i + 1];
+			i++;
+		}
+		v->items[v->total] = NULL;
 	}
-	v->items[i] = item;
-	v->total++;
+	v->total--;
 }
