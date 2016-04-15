@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vectadd.c                                       :+:      :+:    :+:   */
+/*   ft_realloc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/14 20:50:33 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/04/15 09:27:58 by kpiacent         ###   ########.fr       */
+/*   Created: 2016/04/14 22:05:34 by kpiacent          #+#    #+#             */
+/*   Updated: 2016/04/15 09:38:55 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_vectadd(t_vector *v, void *item)
+void	*ft_realloc(void *ptr, size_t size, size_t newsize)
 {
-	int			newcapacity;
+	void	*new;
 
-	if (!v)
-		v = ft_vectnew();
-	if (v->total >= v->capacity)
+	if (!(new = ft_memalloc(sizeof(void *) * newsize)))
+		return (NULL);
+	if (newsize < size)
+		size = newsize;
+	if (ptr != NULL)
 	{
-		newcapacity = v->capacity + VECTOR_CAPACITY;
-		v->items = ft_realloc(v->items, v->capacity, newcapacity);
-		v->capacity = newcapacity;
+		(void)ft_memcpy(new, ptr, size);
+		free(ptr);
 	}
-	v->items[v->total] = item;
-	v->total++;
+	return (new);
 }

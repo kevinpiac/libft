@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/03 10:37:12 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/04/14 23:09:47 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/04/15 09:40:39 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 /*
 ** VECTORS
 */
-# define VECTOR_CAPACITY 10
+# define VECTOR_CAPACITY 1
 
 typedef struct		s_vector
 {
