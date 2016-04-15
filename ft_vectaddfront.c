@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_realloc.c                                       :+:      :+:    :+:   */
+/*   ft_vectaddfront.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/14 22:05:34 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/04/15 10:42:32 by kpiacent         ###   ########.fr       */
+/*   Created: 2016/04/15 09:49:54 by kpiacent          #+#    #+#             */
+/*   Updated: 2016/04/15 11:19:59 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <string.h>
 
-void	*ft_realloc(void *ptr, size_t size, size_t newsize)
+void	ft_vectaddfront(t_vector *v, void *item)
 {
-	void	*new;
+	int		i;
 
-	if (!(new = ft_memalloc(sizeof(void *) * newsize)))
-		return (NULL);
-	if (newsize < size)
-		size = newsize;
-	if (ptr != NULL)
+	ft_vectresize(v);
+	if (v->total > 0)
 	{
-		(void)ft_memcpy(new, ptr, size);
-		free(ptr);
+		i = v->total + 1;
+		while (i)
+		{
+			v->items[i] = v->items[i - 1];
+			i--;
+		}
 	}
-	return (new);
+	v->items[0] = item;
+	v->total++;
 }

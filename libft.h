@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/03 10:37:12 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/04/15 09:40:39 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/04/15 10:16:48 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ typedef struct		s_vector
 
 t_vector			*ft_vectnew(void);
 void				ft_vectadd(t_vector *v, void *item);
+void				ft_vectaddfront(t_vector *v, void *item);
+void				ft_vectresize(t_vector *v);
 
 /*
 ** LINKED LISTS
@@ -158,4 +160,3 @@ char				*ft_strmap(char const *s, char(*f)(char));
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 
 #endif
-

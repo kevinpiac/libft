@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_realloc.c                                       :+:      :+:    :+:   */
+/*   ft_vectresize.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/14 22:05:34 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/04/15 10:42:32 by kpiacent         ###   ########.fr       */
+/*   Created: 2016/04/15 09:56:05 by kpiacent          #+#    #+#             */
+/*   Updated: 2016/04/15 10:44:20 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_realloc(void *ptr, size_t size, size_t newsize)
+void	ft_vectresize(t_vector *v)
 {
-	void	*new;
+	int			newcapacity;
 
-	if (!(new = ft_memalloc(sizeof(void *) * newsize)))
-		return (NULL);
-	if (newsize < size)
-		size = newsize;
-	if (ptr != NULL)
+	if (v->total >= v->capacity)
 	{
-		(void)ft_memcpy(new, ptr, size);
-		free(ptr);
+		newcapacity = v->capacity + VECTOR_CAPACITY;
+		v->items = realloc(v->items, newcapacity);//ft_realloc(v->items, v->capacity, newcapacity);
+		v->capacity = newcapacity;
 	}
-	return (new);
 }
