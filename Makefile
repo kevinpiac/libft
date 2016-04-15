@@ -6,7 +6,7 @@
 #    By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/02 15:06:24 by kpiacent          #+#    #+#              #
-#    Updated: 2016/04/15 11:59:27 by kpiacent         ###   ########.fr        #
+#    Updated: 2016/04/15 13:40:38 by kpiacent         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -45,7 +45,8 @@ FILES = ft_putchar.c ft_putchar_fd.c ft_putstr.c \
 	ft_bitprint.c ft_bitgetfour.c ft_bitsetfour.c \
 	ft_bitgetoctal.c ft_bitsetoctal.c \
 \
-	ft_vectnew.c ft_vectresize.c ft_vectadd.c ft_vectaddfront.c ft_vectshowall.c
+	ft_vectnew.c ft_vectresize.c ft_vectadd.c \
+	ft_vectaddfront.c ft_vectshowall.c ft_vectinsert.c
 
 OBJ = $(FILES:.c=.o)
 TMP = Makefile~ libft.h~ $(NAME)~ $(FILES:.c=.c~)

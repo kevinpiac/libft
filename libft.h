@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/03 10:37:12 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/04/15 12:01:00 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/04/15 14:01:03 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 /*
 ** VECTORS
 */
-# define VECTOR_CAPACITY 1
+# define VECTOR_CAPACITY 10
 
 typedef struct		s_vector
 {
@@ -33,6 +33,7 @@ void				ft_vectadd(t_vector *v, void *item);
 void				ft_vectaddfront(t_vector *v, void *item);
 void				ft_vectresize(t_vector *v);
 void				ft_vectshowall(t_vector *v);
+void				ft_vectinsert(t_vector *v, void *item, int index);
 
 /*
 ** LINKED LISTS
