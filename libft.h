@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/03 10:37:12 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/04/15 14:01:03 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/04/15 14:21:28 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct		s_vector
 }					t_vector;
 
 t_vector			*ft_vectnew(void);
+void				*ft_vectget(t_vector *v, int index);
 void				ft_vectadd(t_vector *v, void *item);
 void				ft_vectaddfront(t_vector *v, void *item);
 void				ft_vectresize(t_vector *v);
