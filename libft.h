@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/03 10:37:12 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/04/15 21:10:18 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/04/23 19:14:05 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,12 @@ char				*ft_strsub(const char *s, unsigned int start, size_t len);
 /*
 ** STR / CHAR BOOLEAN ?
 */
+
+typedef	enum
+{
+	false,
+	true
+}	t_bool;
 
 int					ft_islower(int c);
 int					ft_isupper(int c);
