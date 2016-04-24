@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/03 10:37:12 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/04/24 15:06:58 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/04/24 17:39:13 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ typedef struct		s_opm_option
 {
 	char			*name;
 	char			**aliases;
-	char			**params;
+	char			*param;
 	t_bool			req_params;
 	t_bool			is_set;
 	int				params_nb;

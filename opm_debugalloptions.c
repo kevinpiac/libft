@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/23 14:02:21 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/04/24 15:24:25 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/04/24 18:07:33 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,24 +33,19 @@ static void	debugcontent(t_opm_option *option)
 	else
 		ft_putendl("NO");
 	option->is_set == true ? ft_putendl("is set:		YES") : ft_putendl("is set:		NO");
-	ft_putstr("require params: ");
 	if (option->req_params)
 	{
-		ft_putendl("YES");
-		i = 1;
-		ft_putstr("params nb:	");
-		ft_putnbr(option->params_nb);
-		ft_putendl("");
-		ft_putstr("params:		");
-		while (option->params[i])
+		ft_putendl("require param:	YES");
+		if (option->param)
 		{
-			i > 1 ? ft_putstr(", ") : 1;
-			ft_putstr(option->params[i]);
-			i++;
+			ft_putstr("param:		");
+			ft_putendl(option->param);
 		}
+		else
+			ft_putendl("param:		NULL");
 	}
 	else
-		ft_putendl("NO");
+		 ft_putendl("require param:	NO");
 	ft_putendl("\n-------------------");
 }
 
@@ -58,4 +53,5 @@ void		opm_debugalloptions(t_opm_params *params)
 {
 	ft_putendl("___________________________________________________");
 	ft_vectforeach(params->options, (void *)&debugcontent);
+
 }

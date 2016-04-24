@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/23 13:55:06 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/04/24 15:22:37 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/04/24 18:31:33 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ static t_vector		*progoptions_init(char *opt_conf)
 	}
 	return (options);
 }
-
+/*
 static void			set_opt_params(t_opm_option *option, char *params)
 {
 	char			**opt_params;
@@ -62,43 +62,53 @@ static void			set_opt_params(t_opm_option *option, char *params)
 	opt_params = ft_strsplit(params, '-');
 	option->params = opt_params;
 }
+*/
+static t_bool		set_option(t_opm_option *option, char *opt_param)
+{
+	if (!option)
+		return (false);
+	if (opt_param)
+		option->param = ft_strdup(opt_param);
+	else
+		option->param = NULL;
+	option->is_set = true;
+	return (true);
+}
 
+t_bool				opm_param_is_option(char *param)
+{
+	if (param[0] == '-' && ft_strlen(param) > 1)
+		return (true);
+	return (false);
+}
+
+t_bool				opm_param_is_alias(char *param)
+{
+	if (param[0] == '-' && ft_strlen(param) > 2 && param[1] == '-')
+		return (true);
+	return (false);
+}
 t_opm_params		*opm_init(char *opt_conf, int ac, char **av)
 {
 	t_opm_params	*params;
 	t_opm_option	*option;
+	char			*opt_param;
 	int				i;
-	int				j;
 
 	params = (t_opm_params *)ft_memalloc(sizeof(t_opm_params) * 1);
 	params->options = progoptions_init(opt_conf);
 	i = 1;
 	while (i < ac)
 	{
-		if (av[i][0] == '-' && av[i][1] == '-' && ft_strlen(av[i]) > 2)
+		if (opm_param_is_alias(av[i]) || opm_param_is_option(av[i]))
 		{
-			if ((option = opm_findoption(params, &av[i][2])))
-				option->is_set = true;
+			option = opm_param_is_alias(av[i]) ? opm_findoption(params, &av[i][2]) : opm_findoption(params, &av[i][1]);
+			if (option && option->req_params && i + 1 < ac)
+				opt_param = av[i + 1];
 			else
-				ft_putendl("ERROR\n"); // exit with error.
-		}
-		else if (av[i][0] == '-' && ft_strlen(av[i]) > 1)
-		{
-			j = 1;
-			while (av[i][j])
-			{
-				if ((option = opm_findoption(params, ft_strsub(av[i], j, 1))))
-				{
-					option->is_set = true;
-					if (option->req_params)
-					{
-						set_opt_params(option, &av[i][j]);
-					}
-				}
-				else
-					ft_putendl("ERROR\n"); // exit with error.
-				j++;
-			}
+				opt_param = NULL;
+			if (!set_option(option, opt_param))
+				ft_putstr("error");
 		}
 		i++;
 	}
