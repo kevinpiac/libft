@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/03 10:37:12 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/04/23 19:14:05 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/04/24 11:10:04 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,12 @@
 # include <unistd.h>
 # include <stdlib.h>
 # define ABS(x) ((x > 0) ? x : -x)
+
+typedef	enum
+{
+	false,
+	true
+}	t_bool;
 
 /*
 ** VECTORS
@@ -38,6 +44,34 @@ void				ft_vectshowall(t_vector *v);
 void				ft_vectinsert(t_vector *v, void *item, int index);
 void				ft_vectdelone(t_vector *v, int index);
 void				ft_vectforeach(t_vector *v, void *(*f)(void *));
+
+/*
+** PROGRAM OPTION MANAGER
+*/
+
+typedef struct		s_opm_option
+{
+	char			*name;
+	char			**aliases;
+	t_bool			is_set;
+	int				supported_params; // abbrevation de supported.
+	int				required_params;
+	t_bool			has_params;
+	char			**params;
+}					t_opm_option;
+
+typedef struct		s_opm_params
+{
+	char			*opt_config;
+	char			**av;
+	t_vector		*options;
+}					t_opm_params;
+
+t_opm_params		*opm_init(char *progconfig, int ac, char **av);
+t_opm_option		*opm_getoption(t_opm_params *params, int index);
+t_opm_option		*opm_findoption(t_opm_params *params, char *name);
+t_bool				opm_issetoption(t_opm_params *params, char *name);
+void				opm_debugalloptions(t_opm_params *params);
 
 /*
 ** LINKED LISTS
@@ -104,12 +138,6 @@ char				*ft_strsub(const char *s, unsigned int start, size_t len);
 /*
 ** STR / CHAR BOOLEAN ?
 */
-
-typedef	enum
-{
-	false,
-	true
-}	t_bool;
 
 int					ft_islower(int c);
 int					ft_isupper(int c);
