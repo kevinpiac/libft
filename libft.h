@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/03 10:37:12 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/04/24 17:39:13 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/04/24 19:32:27 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ typedef struct		s_opm_params
 	char			*opt_config;
 	char			**av;
 	t_vector		*options;
+	t_vector		*params;
 }					t_opm_params;
 
 t_opm_params		*opm_init(char *progconfig, int ac, char **av);

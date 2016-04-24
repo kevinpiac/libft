@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/23 14:02:21 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/04/24 18:07:33 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/04/24 19:40:11 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,9 @@ static void	debugcontent(t_opm_option *option)
 
 void		opm_debugalloptions(t_opm_params *params)
 {
+	ft_putendl("___________________________________________________");
+	ft_putendl("Passed params: ");
+	ft_vectshowall(params->params);
 	ft_putendl("___________________________________________________");
 	ft_vectforeach(params->options, (void *)&debugcontent);
 
