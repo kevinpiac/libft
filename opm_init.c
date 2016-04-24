@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/23 13:55:06 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/04/24 11:16:48 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/04/24 15:22:37 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,20 @@ static void			option_new(t_vector *options_container, char *option)
 {
 	t_opm_option	*progoption;
 	char			**options;
+	char			*ret;
 
 	options = ft_strsplit(option, '|');
 	progoption = (t_opm_option *)ft_memalloc(sizeof(t_opm_option) * 1);
-	if (ft_strchr(options[0], ':'))
+	if ((ret = ft_strchr(options[0], ':')))
 	{
 		progoption->name = ft_strsub(options[0], 0, (ft_strlen(options[0]) - 1));
-		progoption->has_params = true;
+		progoption->req_params = true;
 	}
 	else
 	{
 		progoption->name = options[0];
-		progoption->has_params = false;
+		progoption->req_params = false;
+		progoption->params_nb = 0;
 	}
 	if (options[1])
 		progoption->aliases = &options[1];
@@ -51,6 +53,14 @@ static t_vector		*progoptions_init(char *opt_conf)
 		i++;
 	}
 	return (options);
+}
+
+static void			set_opt_params(t_opm_option *option, char *params)
+{
+	char			**opt_params;
+
+	opt_params = ft_strsplit(params, '-');
+	option->params = opt_params;
 }
 
 t_opm_params		*opm_init(char *opt_conf, int ac, char **av)
@@ -78,7 +88,13 @@ t_opm_params		*opm_init(char *opt_conf, int ac, char **av)
 			while (av[i][j])
 			{
 				if ((option = opm_findoption(params, ft_strsub(av[i], j, 1))))
+				{
 					option->is_set = true;
+					if (option->req_params)
+					{
+						set_opt_params(option, &av[i][j]);
+					}
+				}
 				else
 					ft_putendl("ERROR\n"); // exit with error.
 				j++;

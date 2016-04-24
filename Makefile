@@ -6,7 +6,7 @@
 #    By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/02 15:06:24 by kpiacent          #+#    #+#              #
-#    Updated: 2016/04/24 11:16:24 by kpiacent         ###   ########.fr        #
+#    Updated: 2016/04/24 14:07:52 by kpiacent         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -71,8 +71,10 @@ fclean : clean
 
 re : fclean all
 
-test :
-	gcc -o a.out main.c -L ./ -lft && ./a.out
+testopm :
+	@cd tests/opm/ \
+	&& gcc -o a.out main.c -L ../../ -lft \
+	&& ./a.out $(ARGV)
 
 testclean :
 	rm -f a.out

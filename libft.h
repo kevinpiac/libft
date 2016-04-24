@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/03 10:37:12 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/04/24 11:10:04 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/04/24 15:06:58 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef	enum
 /*
 ** VECTORS
 */
+
 # define VECTOR_CAPACITY 10
 
 typedef struct		s_vector
@@ -53,11 +54,10 @@ typedef struct		s_opm_option
 {
 	char			*name;
 	char			**aliases;
-	t_bool			is_set;
-	int				supported_params; // abbrevation de supported.
-	int				required_params;
-	t_bool			has_params;
 	char			**params;
+	t_bool			req_params;
+	t_bool			is_set;
+	int				params_nb;
 }					t_opm_option;
 
 typedef struct		s_opm_params
