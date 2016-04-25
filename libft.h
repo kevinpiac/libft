@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/03 10:37:12 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/04/25 16:13:33 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/04/25 17:14:17 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ t_opm_params		*opm_init(t_vector *arm, t_vector *config);
 t_opm_option		*opm_getoption(t_opm_params *params, int index);
 t_opm_option		*opm_findoption(t_opm_params *params, char *name);
 t_bool				opm_issetoption(t_opm_params *params, char *name);
-void				opm_debugalloptions(t_opm_params *params);
+void				opm_debug(t_opm_params *opm);
 
 /*
 ** LINKED LISTS
