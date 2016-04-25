@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/03 10:37:12 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/04/24 19:32:27 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/04/25 14:03:39 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,21 @@ void				ft_vectdelone(t_vector *v, int index);
 void				ft_vectforeach(t_vector *v, void *(*f)(void *));
 
 /*
-** PROGRAM OPTION MANAGER
+** ARGUMENTS MANAGER
+*/
+
+typedef struct		s_arm_argument
+{
+	char			*type;
+	char			*name;
+}					t_arm_argument;
+
+t_arm_argument		*arm_argument_new(char *name, char *type);
+t_vector			*arm_init(int ac, char **av);
+void				arm_debug(t_vector *arm);
+
+/*
+** PROGRAM'S OPTIONS MANAGER
 */
 
 typedef struct		s_opm_option

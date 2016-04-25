@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/23 13:55:06 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/04/24 19:46:24 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/04/25 10:42:27 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,60 +67,57 @@ static t_bool		set_option(t_opm_option *option, char *opt_param)
 	return (true);
 }
 
-t_bool				opm_param_is_option(char *param)
+static void			opm_checkalias(t_opm_params *params, char **av, int i, int ac)
 {
-	if (param[0] == '-' && ft_strlen(param) > 1)
-		return (true);
-	return (false);
+	char			*opt_param;
+	t_opm_option	*option;
+
+	option = opm_findoption(params, &av[i][2]);
+	if (option && option->req_params && i + 1 < ac)
+		opt_param = av[i + 1];
+	else
+		opt_param = NULL;
+	if (!set_option(option, opt_param))
+		ft_putstr("error unknown option");
 }
 
-t_bool				opm_param_is_alias(char *param)
+static void			opm_checkoptions(t_opm_params *params, char **av, int i, int ac)
 {
-	if (param[0] == '-' && ft_strlen(param) > 2 && param[1] == '-')
-		return (true);
-	return (false);
+	int				j;
+	char			*opt_param;
+	t_opm_option	*option;
+	char			*tmp;
+
+	j = 1;
+	while (av[i][j])
+	{
+		tmp = ft_strsub(av[i], j, 1);
+		option = opm_findoption(params, tmp);
+		free(tmp);
+		if (option && option->req_params && i + 1 < ac)
+			opt_param = av[i + 1];
+		else
+			opt_param = NULL;
+		if (!set_option(option, opt_param))
+			ft_putstr("error unknown option");
+		j++;
+	}
 }
+
 t_opm_params		*opm_init(char *opt_conf, int ac, char **av)
 {
 	t_opm_params	*params;
-	t_opm_option	*option;
-	char			*tmp;
-	char			*opt_param;
 	int				i;
-	int				j;
 
 	params = (t_opm_params *)ft_memalloc(sizeof(t_opm_params) * 1);
 	params->options = progoptions_init(opt_conf);
 	i = 1;
 	while (i < ac)
 	{
-		if (opm_param_is_alias(av[i]))
-		{
-			option = opm_findoption(params, &av[i][2]);
-			if (option && option->req_params && i + 1 < ac)
-				opt_param = av[i + 1];
-			else
-				opt_param = NULL;
-			if (!set_option(option, opt_param))
-				ft_putstr("error");
-		}
-		else if (opm_param_is_option(av[i]))
-		{
-			j = 1;
-			while (av[i][j])
-			{
-				tmp = ft_strsub(av[i], j, 1);
-				option = opm_findoption(params, tmp);
-				free(tmp);
-				if (option && option->req_params && i + 1 < ac)
-					opt_param = av[i + 1];
-				else
-					opt_param = NULL;
-				if (!set_option(option, opt_param))
-					ft_putstr("Option Error");
-				j++;
-			}
-		}
+		if (av[i][0] == '-' && ft_strlen(av[i]) > 2 && av[i][1] == '-')
+			opm_checkalias(params, av, i, ac);
+		else if (av[i][0] == '-' && ft_strlen(av[i]) > 1)
+			opm_checkoptions(params, av, i, ac);
 		else
 		{
 			if (!params->params)
