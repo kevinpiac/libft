@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/23 14:32:49 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/04/24 11:17:06 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/04/25 16:14:54 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_opm_option	*opm_findoption(t_opm_params *params, char *name)
 	i = 0;
 	if (params)
 	{
-		while (i < params->options->total)
+		while (i < params->config->total)
 		{
 			option = opm_getoption(params, i);
 			if (ft_strequ(option->name, name))

@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/03 10:37:12 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/04/25 14:03:39 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/04/25 16:13:33 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,18 +71,17 @@ typedef struct		s_opm_option
 	char			*param;
 	t_bool			req_params;
 	t_bool			is_set;
-	int				params_nb;
 }					t_opm_option;
 
 typedef struct		s_opm_params
 {
-	char			*opt_config;
-	char			**av;
-	t_vector		*options;
-	t_vector		*params;
+	t_vector		*config;
+	t_bool			error;
+	int				error_code;
 }					t_opm_params;
 
-t_opm_params		*opm_init(char *progconfig, int ac, char **av);
+t_vector			*opm_config_init(char *config);
+t_opm_params		*opm_init(t_vector *arm, t_vector *config);
 t_opm_option		*opm_getoption(t_opm_params *params, int index);
 t_opm_option		*opm_findoption(t_opm_params *params, char *name);
 t_bool				opm_issetoption(t_opm_params *params, char *name);

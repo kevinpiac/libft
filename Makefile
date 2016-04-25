@@ -6,7 +6,7 @@
 #    By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/02 15:06:24 by kpiacent          #+#    #+#              #
-#    Updated: 2016/04/25 14:07:30 by kpiacent         ###   ########.fr        #
+#    Updated: 2016/04/25 16:17:45 by kpiacent         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -50,7 +50,7 @@ FILES = ft_putchar.c ft_putchar_fd.c ft_putstr.c \
 	ft_vectget.c ft_vectset.c ft_vectdelone.c \
 	ft_vectforeach.c \
 \
-	opm_init.c opm_getoption.c opm_findoption.c \
+	opm_init.c opm_config_init.c opm_getoption.c opm_findoption.c \
 	opm_issetoption.c opm_debugalloptions.c \
 \
 	arm_argument_new.c arm_init.c arm_debug.c
