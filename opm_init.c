@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/23 13:55:06 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/04/26 15:32:25 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/04/26 15:44:30 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,10 @@ t_opm_params		*opm_init(t_vector *arm, t_vector *config)
 			ft_strequ(option->type, "opt_alias"))
 		{
 			if ((opm_option = opm_findoption(config, option->name)))
+			{
 				opm_option->is_set = true;
+				opm->total_set++;
+			}
 			else
 			{
 				opm->error = true;

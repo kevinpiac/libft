@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/03 10:37:12 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/04/26 15:34:50 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/04/26 15:44:50 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ typedef struct		s_opm_option
 typedef struct		s_opm_params
 {
 	t_vector		*config;
+	int				total_set;
 	t_bool			error;
 	int				error_code;
 }					t_opm_params;

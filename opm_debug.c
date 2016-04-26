@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/25 17:14:22 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/04/26 15:37:18 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/04/26 15:52:02 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,16 @@ static void		opm_putdata(t_opm_option *option)
 
 void			opm_debug(t_opm_params *opm)
 {
-	ft_putstr("OPM __TOTAL_SET__ (");
-	ft_putnbr(0);
-	ft_putendl(")");
+	ft_putstr("\n\nOPM __total__ (");
+	ft_putnbr(opm->config->total);
+	ft_putstr(")	__set__ (");
+	ft_putnbr(opm->total_set);
+	if (opm->error)
+	{
+		ft_putstr(")	__ERROR_CODE__ (");
+		ft_putnbr(opm->error_code);
+	}
+	ft_putendl(")\n");
 	ft_vectforeach(opm->config, (void *)&opm_putdata);
-	ft_putendl("");
+	ft_putstr("\n\n");
 }
