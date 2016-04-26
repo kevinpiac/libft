@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/25 17:14:22 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/04/25 17:58:31 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/04/26 15:37:18 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,5 @@ void			opm_debug(t_opm_params *opm)
 	ft_putnbr(0);
 	ft_putendl(")");
 	ft_vectforeach(opm->config, (void *)&opm_putdata);
+	ft_putendl("");
 }

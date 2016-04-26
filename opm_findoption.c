@@ -6,38 +6,35 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/23 14:32:49 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/04/25 18:41:56 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/04/26 15:36:18 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_opm_option	*opm_findoption(t_opm_params *params, char *name)
+t_opm_option	*opm_findoption(t_vector *options, char *name)
 {
 	t_opm_option	*option;
 	int				i;
 	int				j;
 
 	i = 0;
-	if (params)
+	while (i < options->total)
 	{
-		while (i < params->config->total)
+		option = ft_vectget(options, i);
+		if (ft_strequ(name, option->name))
+			return (option);
+		else if (option->aliases)
 		{
-			option = opm_getoption(params, i);
-			if (ft_strequ(option->name, name))
-				return (option);
-			else if (option->aliases)
+			j = 0;
+			while (option->aliases[j])
 			{
-				j = 0;
-				while (option->aliases[j])
-				{
-					if (ft_strequ(option->aliases[j], name))
-						return (option);
-					j++;
-				}
+				if (ft_strequ(name, option->aliases[j]))
+					return (option);
+				j++;
 			}
-			i++;
 		}
+		i++;
 	}
 	return (NULL);
 }

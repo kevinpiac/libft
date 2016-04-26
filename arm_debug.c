@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/25 14:04:05 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/04/25 14:27:09 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/04/26 15:37:04 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,5 @@ void			arm_debug(t_vector *arm)
 	ft_putnbr(arm->total);
 	ft_putendl(")");
 	ft_vectforeach(arm, (void *)&arm_putdata);
+	ft_putendl("");
 }
