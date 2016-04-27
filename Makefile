@@ -6,7 +6,7 @@
 #    By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/02 15:06:24 by kpiacent          #+#    #+#              #
-#    Updated: 2016/04/25 17:14:42 by kpiacent         ###   ########.fr        #
+#    Updated: 2016/04/27 14:27:40 by kpiacent         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -50,10 +50,15 @@ FILES = ft_putchar.c ft_putchar_fd.c ft_putstr.c \
 	ft_vectget.c ft_vectset.c ft_vectdelone.c \
 	ft_vectforeach.c \
 \
-	opm_init.c opm_config_init.c opm_getoption.c opm_findoption.c \
+	opm_init.c opm_config_init.c \
+	opm_getoption.c opm_getoption_param.c \
+	opm_findoption.c opm_findoption_param.c \
 	opm_issetoption.c opm_debug.c \
 \
-	arm_argument_new.c arm_init.c arm_debug.c
+	arm_argument_new.c arm_init.c arm_debug.c \
+	arm_getparam.c arm_getparam_name.c arm_getparam_type.c \
+	arm_findparam.c arm_findallparams.c arm_findalloptions.c \
+	arm_isparam.c arm_isoption.c
 
 OBJ = $(FILES:.c=.o)
 TMP = Makefile~ libft.h~ $(NAME)~ $(FILES:.c=.c~)
