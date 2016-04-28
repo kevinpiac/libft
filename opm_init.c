@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/23 13:55:06 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/04/26 16:12:13 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/04/28 14:44:23 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,18 @@ t_opm_params		*opm_init(t_vector *arm, t_vector *config)
 
 	i = 1;
 	opm = (t_opm_params *)ft_memalloc(sizeof(t_opm_params) * 1);
+	opm->params = ft_vectnew();
 	while (i < arm->total)
 	{
 		option = ft_vectget(arm, i);
-		if (ft_strequ(option->type, "option") ||
-			ft_strequ(option->type, "opt_alias")) // replace by binary mask macro.
+		if (arm_isoption(option))
 		{
 			if ((opm_option = opm_findoption(config, option->name)))
 			{
 				if (opm_option->req_params && i + 1 < arm->total)
 				{
 					opt_param = ft_vectget(arm, i + 1);
+					opt_param->type = "CCC";
 					opm_option->param = opt_param->name;
 					i++;
 				}
@@ -44,6 +45,10 @@ t_opm_params		*opm_init(t_vector *arm, t_vector *config)
 				opm->error = true;
 				opm->error_code = -1;
 			}
+		}
+		else if (!arm_isoption(option))
+		{
+			ft_vectadd(opm->params, option);
 		}
 		i++;
 	}
