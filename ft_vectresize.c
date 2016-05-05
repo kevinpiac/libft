@@ -11,15 +11,19 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "libft.h"
 
 void	ft_vectresize(t_vector *v)
 {
-	int			newcapacity;
+  void		**new;
 
-	if (v->total >= v->capacity)
-	{
-		newcapacity = v->capacity + VECTOR_CAPACITY;
-		v->items = realloc(v->items, newcapacity);//ft_realloc(v->items, v->capacity, newcapacity);
-		v->capacity = newcapacity;
-	}
+  if (v->total >= v->capacity)
+    {
+      if (!(new = (void **)malloc(sizeof(void *) * (v->capacity * 2))))
+	return ;
+      ft_memcpy(new, v->items, (v->capacity * sizeof(void *)));
+      free(v->items);
+      v->capacity *= 2;
+      v->items = new;
+    }
 }
