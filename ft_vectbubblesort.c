@@ -1,19 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl.c                                       :+:      :+:    :+:   */
+/*   ft_vectbubblesort.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/04 11:08:12 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/02/04 11:14:34 by kpiacent         ###   ########.fr       */
+/*   Created: 2016/04/15 14:20:56 by kpiacent          #+#    #+#             */
+/*   Updated: 2016/04/15 14:21:07 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putendl(char const *s)
+void        ft_vectbubblesort(t_vector *v, int(*cmp)(void *, void *))
 {
-	write(1, s, ft_strlen(s));
-	write(1, "\n", 1);
+    int			i;
+	int 		j;
+    void        *tmp;
+
+	i = 0;
+	while (i < v->total)
+	{
+		j = 0;
+		while (j < v->total - 1)
+		{
+			if (cmp(v->items[j], v->items[j + 1]))
+			{
+				tmp = v->items[j];
+				v->items[j] = v->items[j + 1];
+				v->items[j + 1] = tmp;
+			}
+			j++;
+		}
+		i++;
+	}
 }
