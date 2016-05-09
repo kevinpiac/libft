@@ -52,6 +52,7 @@ t_vector		*opm_config_init(char *config_instruct)
 	while (conf[i])
 	{
 		opm_option_add(config, conf[i]);
+		free(conf[i]);
 		i++;
 	}
 	if (conf)

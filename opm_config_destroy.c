@@ -12,13 +12,27 @@
 
 #include "libft.h"
 
-static void		opm_config_destroy_item(void *this)
+static void		opm_config_destroy_item(void *item)
 {
+	t_opm_option *	this;
+	int				i;
+
+	i = 0;
+	this = (t_opm_option *)item;
 	if (!this)
 		return ;
-	if (((t_opm_option *)this)->aliases)
-		ft_delsplit(((t_opm_option *)this)->aliases);
-	free((t_opm_option *)this);
+	if (this->aliases)
+	{
+		while (this->aliases[i])
+		{
+			free(this->aliases[i]);
+			i++;
+		}
+//		free(this->aliases);
+	}
+	if (this->name)
+		free(this->name);
+	free(this);
 	this = NULL;
 }
 

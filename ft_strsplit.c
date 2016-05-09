@@ -12,67 +12,60 @@
 
 #include "libft.h"
 
-static size_t	ft_wordcount(char const *s, char c)
+static size_t	countstr(char const *s, char c)
 {
-	int		in_word;
-	size_t	n_word;
-	size_t	i;
+	size_t		count;
+	size_t		word;
 
-	in_word = 0;
-	n_word = 0;
-	i = 0;
-	while (s[i])
+	count = 0;
+	word = 0;
+	while (*s)
 	{
-		if (s[i] != c)
+		if (word == 1 && *s == c)
+			word = 0;
+		if (word == 0 && *s != c)
 		{
-			if (!in_word)
-				n_word++;
-			in_word = 1;
+			word = 1;
+			count++;
 		}
-		else
-			in_word = 0;
-		i++;
+		s++;
 	}
-	return (n_word);
+	return (count);
 }
 
-static char		*ft_wordpicker(char *str, char **ptr, char c)
+static size_t	wordlen(char const *s, char c)
 {
-	size_t	word_begin;
-	size_t	word_end;
-	char	*word;
+	size_t		count;
 
-	word_begin = 0;
-	word_end = 0;
-	while (str[word_begin] == c)
-		word_begin++;
-	word_end = word_begin;
-	while (str[word_end] && str[word_end] != c)
-		word_end++;
-	word = ft_strsub(str, word_begin, word_end - word_begin);
-	*ptr = word;
-	return (str + word_end);
+	count = 0;
+	while (*s != c && *s)
+	{
+		count++;
+		s++;
+	}
+	return (count);
 }
 
 char			**ft_strsplit(char const *s, char c)
 {
-	size_t	n_word;
-	char	**ptr;
-	char	*str;
-	size_t	i;
+	char			**str;
+	size_t			n;
+	unsigned int	i;
 
-	ptr = NULL;
+	n = countstr(s, c);
+	if (!(str = (char **)malloc(sizeof(char *) * (n + 1))))
+		return (NULL);
 	i = 0;
-	if (s)
+	while (n--)
 	{
-		str = (char *)s;
-		n_word = ft_wordcount(s, c);
-		ptr = (char **)ft_memalloc((n_word + 1) * sizeof(char *));
-		if (!ptr)
+		while (*s == c && *s)
+			s++;
+		str[i] = ft_strsub(s, 0, wordlen(s, c));
+		if (!str[i])
 			return (NULL);
-		while (i < n_word)
-			str = ft_wordpicker(str, ptr + i++, c);
-		ptr[n_word] = 0;
+		s += wordlen(s, c);
+		i++;
 	}
-	return (ptr);
+	str[i] = NULL;
+	return (str);
 }
