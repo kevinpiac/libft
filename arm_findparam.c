@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-t_arm_argument	*arm_findparam(t_vector *arm, char	*name)
+t_arm_argument	*arm_findparam(t_vector *arm, char *name)
 {
 	int				i;
 	t_arm_argument	*param;

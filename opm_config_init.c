@@ -51,6 +51,5 @@ t_vector		*opm_config_init(char *config_instruct)
 		opm_option_add(config, conf[i]);
 		i++;
 	}
-
 	return (config);
 }

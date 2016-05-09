@@ -39,7 +39,8 @@ t_vector	*arm_init(int ac, char **av)
 			j = 1;
 			while (j < len)
 			{
-				ft_vectadd(arm, arm_argument_new(ft_strsub(av[i], j, 1), "option"));
+				ft_vectadd(arm, arm_argument_new(ft_strsub(av[i], j, 1),
+				"option"));
 				j++;
 			}
 		}

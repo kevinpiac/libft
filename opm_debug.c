@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static void		opm_putaliases(char	**aliases)
+static void			opm_putaliases(char **aliases)
 {
 	int				i;
 
@@ -31,7 +31,7 @@ static void		opm_putaliases(char	**aliases)
 	ft_putchar('\n');
 }
 
-static void		opm_putdata(t_opm_option *option)
+static void			opm_putdata(t_opm_option *option)
 {
 	static int		i;
 
@@ -51,7 +51,7 @@ static void		opm_putdata(t_opm_option *option)
 	i++;
 }
 
-void			opm_debug(t_opm_params *opm)
+void				opm_debug(t_opm_params *opm)
 {
 	ft_putstr("\n\nOPM __total__ (");
 	ft_putnbr(opm->config->total);

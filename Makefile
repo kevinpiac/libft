@@ -48,7 +48,7 @@ FILES = ft_putchar.c ft_putchar_fd.c ft_putstr.c \
 	ft_vectnew.c ft_vectresize.c ft_vectadd.c \
 	ft_vectaddfront.c ft_vectshowall.c ft_vectinsert.c \
 	ft_vectget.c ft_vectset.c ft_vectdelone.c \
-	ft_vectforeach.c ft_vectbubblesort.c \
+	ft_vectforeach.c ft_vectbubblesort.c ft_vectdel.c \
 \
 	opm_init.c opm_config_init.c \
 	opm_getoption.c opm_getoption_param.c \

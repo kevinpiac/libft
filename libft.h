@@ -45,7 +45,9 @@ void				ft_vectshowall(t_vector *v);
 void				ft_vectinsert(t_vector *v, void *item, int index);
 void				ft_vectdelone(t_vector *v, int index);
 void				ft_vectforeach(t_vector *v, void *(*f)(void *));
-void 				ft_vectbubblesort(t_vector *v, int(*cmp)(void *, void *), int order);
+void				ft_vectbubblesort(t_vector *v, int (*cmp)(void *, void *),
+							int order);
+void				ft_vectdel(t_vector *v, void(del_fn)(void *));
 
 /*
 ** ARGUMENTS MANAGER

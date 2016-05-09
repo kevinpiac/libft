@@ -1,21 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   opm_setoption.c                                    :+:      :+:    :+:   */
+/*   ft_vectdel.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/25 18:13:07 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/04/25 18:41:13 by kpiacent         ###   ########.fr       */
+/*   Created: 2016/04/15 14:20:56 by kpiacent          #+#    #+#             */
+/*   Updated: 2016/04/15 14:21:07 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	opm_setoption(t_opm_option *option)
+void			ft_vectdel(t_vector *v, void (*del_fn)(void *))
 {
-	t_opm_option	*exist;
+	int			i;
 
-	if ((exist = opm_option_find(option)))
-
+	i = 0;
+	if (!v)
+		return ;
+	while (i < v->total)
+	{
+		del_fn(v->items[i]);
+		i++;
+	}
+	free(v);
 }

@@ -12,11 +12,12 @@
 
 #include "libft.h"
 
-void        ft_vectbubblesort(t_vector *v, int(*cmp)(void *, void *), int order)
+void			ft_vectbubblesort(t_vector *v, int (*cmp)(void *, void *),
+				int order)
 {
-    int			i;
-	int 		j;
-    void        *tmp;
+	int			i;
+	int			j;
+	void		*tmp;
 
 	i = 0;
 	while (i < v->total)
@@ -25,7 +26,7 @@ void        ft_vectbubblesort(t_vector *v, int(*cmp)(void *, void *), int order)
 		while (j < v->total - 1)
 		{
 			if ((cmp(v->items[j], v->items[j + 1]) && order == 1) ||
-                (!cmp(v->items[j], v->items[j + 1]) && order == -1))
+			(!cmp(v->items[j], v->items[j + 1]) && order == -1))
 			{
 				tmp = v->items[j];
 				v->items[j] = v->items[j + 1];
