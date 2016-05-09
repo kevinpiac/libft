@@ -12,17 +12,19 @@
 
 #include "libft.h"
 
-void			ft_vectdel(t_vector *v, void (*del_fn)(void *))
+void			ft_vectdel(t_vector *this, void (*del_fn)(void *))
 {
 	int			i;
 
 	i = 0;
-	if (!v)
+	if (!this)
 		return ;
-	while (i < v->total)
+	while (i < this->total)
 	{
-		del_fn(v->items[i]);
+		del_fn(this->items[i]);
 		i++;
 	}
-	free(v);
+	if (this->items)
+		free(this->items);
+	free(this);
 }

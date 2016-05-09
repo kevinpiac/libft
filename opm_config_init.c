@@ -19,7 +19,7 @@ static void		opm_option_add(t_vector *config, char *option_name)
 	char			*ret;
 
 	aliases = ft_strsplit(option_name, '|');
-	option = (t_opm_option *)ft_memalloc(sizeof(t_opm_option) * 1);
+	option = (t_opm_option *)ft_memalloc(sizeof(t_opm_option));
 	if ((ret = ft_strchr(aliases[0], ':')))
 	{
 		option->name = ft_strsub(aliases[0], 0, (ft_strlen(aliases[0]) - 1));
@@ -33,7 +33,10 @@ static void		opm_option_add(t_vector *config, char *option_name)
 	if (aliases[1])
 		option->aliases = &aliases[1];
 	else
+	{
+		ft_delsplit(aliases);
 		option->aliases = NULL;
+	}
 	ft_vectadd(config, option);
 }
 
@@ -51,5 +54,7 @@ t_vector		*opm_config_init(char *config_instruct)
 		opm_option_add(config, conf[i]);
 		i++;
 	}
+	if (conf)
+		free(conf);
 	return (config);
 }

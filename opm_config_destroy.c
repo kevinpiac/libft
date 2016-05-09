@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vectnew.c                                       :+:      :+:    :+:   */
+/*   opm_config_destroy.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/14 20:07:27 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/04/14 22:30:17 by kpiacent         ###   ########.fr       */
+/*   Created: 2016/02/24 16:26:29 by kpiacent          #+#    #+#             */
+/*   Updated: 2016/02/24 16:26:31 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_vector	*ft_vectnew(void)
+static void		opm_config_destroy_item(void *this)
 {
-	t_vector	*vector;
+	if (!this)
+		return ;
+	if (((t_opm_option *)this)->aliases)
+		ft_delsplit(((t_opm_option *)this)->aliases);
+	free((t_opm_option *)this);
+	this = NULL;
+}
 
-	if (!(vector = ft_memalloc(sizeof(t_vector) * 1)))
-		return (NULL);
-	if (!(vector->items = ft_memalloc(sizeof(void *) * VECTOR_CAPACITY)))
-		return (NULL);
-	vector->total = 0;
-	vector->capacity = VECTOR_CAPACITY;
-	return (vector);
+void			opm_config_destroy(t_vector *this)
+{
+	if (!this)
+		return ;
+	ft_vectdel(this, &opm_config_destroy_item);
 }

@@ -62,6 +62,7 @@ typedef struct		s_arm_argument
 t_arm_argument		*arm_argument_new(char *name, char *type);
 t_vector			*arm_init(int ac, char **av);
 void				arm_debug(t_vector *arm);
+void				arm_destroy(t_vector *this);
 
 t_arm_argument		*arm_getparam(t_vector *arm, int index);
 char				*arm_getparam_name(t_vector *arm, int index);
@@ -97,7 +98,11 @@ typedef struct		s_opm_params
 }					t_opm_params;
 
 t_vector			*opm_config_init(char *config);
+void				opm_config_destroy(t_vector *this);
+
 t_opm_params		*opm_init(t_vector *arm, t_vector *config);
+void				opm_destroy(t_opm_params *this);
+
 void				opm_debug(t_opm_params *opm);
 
 t_opm_option		*opm_getoption(t_opm_params *params, int index);
@@ -204,6 +209,7 @@ char				*ft_strjoin(const char *s1, const char *s2);
 char				*ft_strtrim(const char *s);
 
 char				**ft_strsplit(char const *s, char c);
+void				ft_delsplit(char **splited);
 
 /*
 ** MEMORY ALLOCATION / MANIPULATION

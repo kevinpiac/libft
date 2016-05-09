@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vectnew.c                                       :+:      :+:    :+:   */
+/*   ft_delsplit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/14 20:07:27 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/04/14 22:30:17 by kpiacent         ###   ########.fr       */
+/*   Created: 2016/02/24 16:26:29 by kpiacent          #+#    #+#             */
+/*   Updated: 2016/02/24 16:26:31 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_vector	*ft_vectnew(void)
+void			ft_delsplit(char **splited)
 {
-	t_vector	*vector;
+	int			i;
 
-	if (!(vector = ft_memalloc(sizeof(t_vector) * 1)))
-		return (NULL);
-	if (!(vector->items = ft_memalloc(sizeof(void *) * VECTOR_CAPACITY)))
-		return (NULL);
-	vector->total = 0;
-	vector->capacity = VECTOR_CAPACITY;
-	return (vector);
+	i = 0;
+	if (splited)
+		return ;
+	while (splited[i])
+	{
+		free(splited[i]);
+		splited[i] = NULL;
+		i++;
+	}
+	free(splited);
 }
