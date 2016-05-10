@@ -25,7 +25,7 @@ t_opm_params		*opm_init(t_vector *arm, t_vector *config)
 	opm->params = ft_vectnew();
 	while (i < arm->total)
 	{
-		option = ft_vectget(arm, i);
+		option = arm->items[i];
 		if (arm_isoption(option))
 		{
 			if ((opm_option = opm_findoption(config, option->name)))
@@ -33,7 +33,7 @@ t_opm_params		*opm_init(t_vector *arm, t_vector *config)
 				if (opm_option->req_params && i + 1 < arm->total)
 				{
 					opt_param = ft_vectget(arm, i + 1);
-					opt_param->type = "CCC";
+					opt_param->type = "opt_param";
 					opm_option->param = opt_param->name;
 					i++;
 				}
@@ -41,10 +41,7 @@ t_opm_params		*opm_init(t_vector *arm, t_vector *config)
 				opm->total_set++;
 			}
 			else
-			{
-				opm->error = true;
-				opm->error_code = -1;
-			}
+				opm_error();
 		}
 		else if (!arm_isoption(option))
 		{

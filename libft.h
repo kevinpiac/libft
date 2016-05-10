@@ -14,6 +14,7 @@
 # define LIBFT_H
 # include <unistd.h>
 # include <stdlib.h>
+# include <errno.h>
 # define ABS(x) ((x > 0) ? x : -x)
 
 typedef	enum
@@ -79,6 +80,8 @@ t_bool				arm_isoption(t_arm_argument *arg);
 ** PROGRAM'S OPTIONS MANAGER
 */
 
+# include "opm_config.h"
+
 typedef struct		s_opm_option
 {
 	char			*name;
@@ -104,7 +107,7 @@ t_opm_params		*opm_init(t_vector *arm, t_vector *config);
 void				opm_destroy(t_opm_params *this);
 
 void				opm_debug(t_opm_params *opm);
-
+void				opm_error(void);
 t_opm_option		*opm_getoption(t_opm_params *params, int index);
 char				*opm_getoption_param(t_opm_params *params, int index);
 

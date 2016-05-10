@@ -54,7 +54,7 @@ FILES = ft_putchar.c ft_putchar_fd.c ft_putstr.c \
 	opm_getoption.c opm_getoption_param.c \
 	opm_findoption.c opm_findoption_param.c \
 	opm_issetoption.c opm_debug.c opm_destroy.c \
-	opm_config_destroy.c \
+	opm_config_destroy.c opm_error.c \
 \
 	arm_argument_new.c arm_init.c arm_debug.c \
 	arm_getparam.c arm_getparam_name.c arm_getparam_type.c \
