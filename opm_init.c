@@ -12,13 +12,15 @@
 
 #include "libft.h"
 
-static void			check_for_option(t_vector *arm, int i, t_opm_params *opm,
+static int		check_for_option(t_vector *arm, int i, t_opm_params *opm,
 						t_vector *config)
 {
 	t_opm_option	*opm_option;
 	t_arm_argument	*opt_param;
 	t_arm_argument 	*option;
+	int				ret;
 
+	ret = i;
 	option = ft_vectget(arm, i);
 	if ((opm_option = opm_findoption(config, option->name)))
 	{
@@ -27,13 +29,14 @@ static void			check_for_option(t_vector *arm, int i, t_opm_params *opm,
 			opt_param = ft_vectget(arm, i + 1);
 			opt_param->type = "opt_param";
 			opm_option->param = opt_param->name;
-			i++;
+			ret++;
 		}
 		opm_option->is_set = true;
 		opm->total_set++;
 	}
 	else
 		opm_error();
+	return (ret);
 }
 
 t_opm_params		*opm_init(t_vector *arm, t_vector *config)
@@ -49,7 +52,7 @@ t_opm_params		*opm_init(t_vector *arm, t_vector *config)
 	{
 		option = arm->items[i];
 		if (arm_isoption(option))
-			check_for_option(arm, i, opm, config);
+			i = check_for_option(arm, i, opm, config);
 		else if (!arm_isoption(option))
 		{
 			ft_vectadd(opm->params, option);
