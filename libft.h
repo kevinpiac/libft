@@ -107,7 +107,7 @@ t_opm_params		*opm_init(t_vector *arm, t_vector *config);
 void				opm_destroy(t_opm_params *this);
 
 void				opm_debug(t_opm_params *opm);
-void				opm_error(void);
+void				opm_error(const char *error_description);
 t_opm_option		*opm_getoption(t_opm_params *params, int index);
 char				*opm_getoption_param(t_opm_params *params, int index);
 

@@ -35,7 +35,7 @@ static int		check_for_option(t_vector *arm, int i, t_opm_params *opm,
 		opm->total_set++;
 	}
 	else
-		opm_error();
+		opm_error("You passed a non supported parameter.");
 	return (ret);
 }
 

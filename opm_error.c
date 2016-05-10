@@ -12,9 +12,14 @@
 
 #include "libft.h"
 
-void			opm_error(void)
+void			opm_error(const char *error_description)
 {
 	ft_putendl_fd(OPM_ERROR_MSG, 2);
+	if (error_description)
+	{
+		ft_putstr_fd("Error description: ", 2);
+		ft_putendl_fd(error_description, 2);
+	}
 	ft_putstr_fd("usage: ", 2);
 	ft_putstr_fd(OPM_PROGNAME, 2);
 	ft_putstr_fd(" ", 2);
