@@ -14,7 +14,7 @@
 
 static void		opm_config_destroy_item(void *item)
 {
-	t_opm_option *	this;
+	t_opm_option	*this;
 	int				i;
 
 	i = 0;
@@ -28,7 +28,6 @@ static void		opm_config_destroy_item(void *item)
 			free(this->aliases[i]);
 			i++;
 		}
-//		free(this->aliases);
 	}
 	if (this->name)
 		free(this->name);

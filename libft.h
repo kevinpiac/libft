@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <errno.h>
 # define ABS(x) ((x > 0) ? x : -x)
+# include "opm_config.h"
 
 typedef	enum
 {
@@ -79,8 +80,6 @@ t_bool				arm_isoption(t_arm_argument *arg);
 /*
 ** PROGRAM'S OPTIONS MANAGER
 */
-
-# include "opm_config.h"
 
 typedef struct		s_opm_option
 {

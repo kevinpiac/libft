@@ -12,12 +12,12 @@
 
 #include "libft.h"
 
-static int		check_for_option(t_vector *arm, int i, t_opm_params *opm,
-						t_vector *config)
+static int			check_for_option(t_vector *arm, int i, t_opm_params *opm,
+					t_vector *config)
 {
 	t_opm_option	*opm_option;
 	t_arm_argument	*opt_param;
-	t_arm_argument 	*option;
+	t_arm_argument	*option;
 	int				ret;
 
 	ret = i;
