@@ -14,13 +14,12 @@
 
 static void		arm_destroy_item(void *this)
 {
-
 	if ((t_vector *)this)
 		free((t_vector *)this);
 	this = NULL;
 }
 
-void			arm_destroy(t_vector	*this)
+void			arm_destroy(t_vector *this)
 {
 	ft_vectdel(this, &arm_destroy_item);
 }

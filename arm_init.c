@@ -12,12 +12,48 @@
 
 #include "libft.h"
 
-t_vector	*arm_init(int ac, char **av)
+static void				add_options(char **av, int i, size_t len, t_vector *arm)
+{
+	size_t		j;
+
+	j = 1;
+	while (j < len)
+	{
+		ft_vectadd(arm, arm_argument_new(ft_strsub(av[i], j, 1),
+		"option"));
+		j++;
+	}
+}
+
+static t_bool			set_arg(char **av, int i, t_vector *arm, t_bool force)
+{
+	size_t		len;
+	t_bool		force_param;
+
+	force_param = force;
+	len = ft_strlen(av[i]);
+	if (i == 0)
+		ft_vectadd(arm, arm_argument_new(av[i], "prog"));
+	else if (force_param)
+		ft_vectadd(arm, arm_argument_new(av[i], "param"));
+	else if (ft_strequ("--", av[i]))
+		force_param = true;
+	else if (len > 2 && av[i][0] == '-' && av[i][1] == '-')
+		ft_vectadd(arm, arm_argument_new(&av[i][2], "opt_alias"));
+	else if (len > 1 && av[i][0] == '-')
+		add_options(av, i, len, arm);
+	else
+	{
+		ft_vectadd(arm, arm_argument_new(av[i], "param"));
+		force_param = true;
+	}
+	return (force_param);
+}
+
+t_vector				*arm_init(int ac, char **av)
 {
 	t_vector	*arm;
 	int			i;
-	size_t		j;
-	size_t		len;
 	t_bool		force_param;
 
 	force_param = false;
@@ -25,30 +61,7 @@ t_vector	*arm_init(int ac, char **av)
 	i = 0;
 	while (i < ac)
 	{
-		len = ft_strlen(av[i]);
-		if (i == 0)
-			ft_vectadd(arm, arm_argument_new(av[i], "prog"));
-		else if (force_param)
-			ft_vectadd(arm, arm_argument_new(av[i], "param"));
-		else if (ft_strequ("--", av[i]))
-			force_param = true;
-		else if (len > 2 && av[i][0] == '-' && av[i][1] == '-')
-			ft_vectadd(arm, arm_argument_new(&av[i][2], "opt_alias"));
-		else if (len > 1 && av[i][0] == '-')
-		{
-			j = 1;
-			while (j < len)
-			{
-				ft_vectadd(arm, arm_argument_new(ft_strsub(av[i], j, 1),
-				"option"));
-				j++;
-			}
-		}
-		else
-		{
-			ft_vectadd(arm, arm_argument_new(av[i], "param"));
-			force_param = true;
-		}
+		force_param = set_arg(av, i, arm, force_param);
 		i++;
 	}
 	return (arm);
