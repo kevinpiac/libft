@@ -19,7 +19,7 @@ static void				add_options(char **av, int i, size_t len, t_vector *arm)
 	j = 1;
 	while (j < len)
 	{
-		ft_vectadd(arm, arm_argument_new(ft_strsub(av[i], j, 1),
+		vector_add(arm, arm_argument_new(ft_strsub(av[i], j, 1),
 		"option"));
 		j++;
 	}
@@ -33,18 +33,18 @@ static t_bool			set_arg(char **av, int i, t_vector *arm, t_bool force)
 	force_param = force;
 	len = ft_strlen(av[i]);
 	if (i == 0)
-		ft_vectadd(arm, arm_argument_new(av[i], "prog"));
+		vector_add(arm, arm_argument_new(av[i], "prog"));
 	else if (force_param)
-		ft_vectadd(arm, arm_argument_new(av[i], "param"));
+		vector_add(arm, arm_argument_new(av[i], "param"));
 	else if (ft_strequ("--", av[i]))
 		force_param = true;
 	else if (len > 2 && av[i][0] == '-' && av[i][1] == '-')
-		ft_vectadd(arm, arm_argument_new(&av[i][2], "opt_alias"));
+		vector_add(arm, arm_argument_new(&av[i][2], "opt_alias"));
 	else if (len > 1 && av[i][0] == '-')
 		add_options(av, i, len, arm);
 	else
 	{
-		ft_vectadd(arm, arm_argument_new(av[i], "param"));
+		vector_add(arm, arm_argument_new(av[i], "param"));
 		force_param = true;
 	}
 	return (force_param);
@@ -57,7 +57,7 @@ t_vector				*arm_init(int ac, char **av)
 	t_bool		force_param;
 
 	force_param = false;
-	arm = ft_vectnew();
+	arm = vector_new(VECTOR_DEFAULT_CAPACITY);
 	i = 0;
 	while (i < ac)
 	{

@@ -1,40 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   opm_findoption.c                                   :+:      :+:    :+:   */
+/*   vector_set.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/23 14:32:49 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/04/26 15:36:18 by kpiacent         ###   ########.fr       */
+/*   Created: 2016/04/15 14:29:56 by kpiacent          #+#    #+#             */
+/*   Updated: 2016/04/15 14:34:43 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_opm_option	*opm_findoption(t_vector *options, char *name)
+void	vector_set(t_vector *this, void *item, int index)
 {
-	t_opm_option	*option;
-	int				i;
-	int				j;
-
-	i = 0;
-	while (i < options->total)
+	if (index > 0 && index <= this->total)
 	{
-		option = ft_vectget(options, i);
-		if (ft_strequ(name, option->name))
-			return (option);
-		else if (option->aliases)
-		{
-			j = 0;
-			while (option->aliases[j])
-			{
-				if (ft_strequ(name, option->aliases[j]))
-					return (option);
-				j++;
-			}
-		}
-		i++;
+		this->items[index] = item;
 	}
-	return (NULL);
 }

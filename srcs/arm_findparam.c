@@ -1,18 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vectshowall.c                                   :+:      :+:    :+:   */
+/*   arm_findparam.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/15 12:01:48 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/04/15 21:11:30 by kpiacent         ###   ########.fr       */
+/*   Created: 2016/04/27 13:36:29 by kpiacent          #+#    #+#             */
+/*   Updated: 2016/04/27 13:38:19 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_vectshowall(t_vector *v)
+t_arm_argument	*arm_findparam(t_vector *arm, char *name)
 {
-	ft_vectforeach(v, (void *)&ft_putendl);
+	int				i;
+	t_arm_argument	*param;
+
+	i = 0;
+	while (i < arm->total)
+	{
+		param = vector_get(arm, i);
+		if (ft_strequ(param->type, "param"))
+		{
+			if (ft_strequ(param->name, name))
+				return (param);
+		}
+	}
+	return (NULL);
 }

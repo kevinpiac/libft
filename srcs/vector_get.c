@@ -1,26 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vectnew.c                                       :+:      :+:    :+:   */
+/*   vector_get.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/14 20:07:27 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/04/14 22:30:17 by kpiacent         ###   ########.fr       */
+/*   Created: 2016/04/15 14:20:56 by kpiacent          #+#    #+#             */
+/*   Updated: 2016/04/15 14:21:07 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_vector	*ft_vectnew(void)
+void	*vector_get(t_vector *v, int index)
 {
-	t_vector	*vector;
-
-	if (!(vector = ft_memalloc(sizeof(t_vector) * 1)))
+	if (!v || index > v->total)
 		return (NULL);
-	if (!(vector->items = ft_memalloc(sizeof(void *) * VECTOR_CAPACITY)))
-		return (NULL);
-	vector->total = 0;
-	vector->capacity = VECTOR_CAPACITY;
-	return (vector);
+	return (v->items[index]);
 }

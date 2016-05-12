@@ -28,7 +28,7 @@ typedef	enum
 ** VECTORS
 */
 
-# define VECTOR_CAPACITY 10
+# define VECTOR_DEFAULT_CAPACITY 10
 
 typedef struct		s_vector
 {
@@ -37,19 +37,19 @@ typedef struct		s_vector
 	int				total;
 }					t_vector;
 
-t_vector			*ft_vectnew(void);
-void				*ft_vectget(t_vector *v, int index);
-void				ft_vectset(t_vector *v, void *item, int index);
-void				ft_vectadd(t_vector *v, void *item);
-void				ft_vectaddfront(t_vector *v, void *item);
-void				ft_vectresize(t_vector *v);
-void				ft_vectshowall(t_vector *v);
-void				ft_vectinsert(t_vector *v, void *item, int index);
-void				ft_vectdelone(t_vector *v, int index);
-void				ft_vectforeach(t_vector *v, void *(*f)(void *));
-void				ft_vectbubblesort(t_vector *v, int (*cmp)(void *, void *),
+t_vector			*vector_new(size_t capacity);
+void				vector_del(t_vector *this, void(del_fn)(void *));
+void				*vector_get(t_vector *this, int index);
+void				vector_set(t_vector *this, void *item, int index);
+void				vector_add(t_vector *this, void *item);
+void				vector_addfront(t_vector *this, void *item);
+void				vector_resize(t_vector *this);
+void				vector_showall(t_vector *this);
+void				vector_insert(t_vector *this, void *item, int index);
+void				vector_delone(t_vector *this, int index);
+void				vector_foreach(t_vector *this, void (*f)(void *));
+void				vector_bubblesort(t_vector *this, int (*cmp)(void *, void *),
 							int order);
-void				ft_vectdel(t_vector *v, void(del_fn)(void *));
 
 /*
 ** ARGUMENTS MANAGER

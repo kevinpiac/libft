@@ -18,7 +18,7 @@ char	*opm_getoption_param(t_opm_params *params, int index)
 
 	if (params)
 	{
-		option = (t_opm_option *)ft_vectget(params->config, index);
+		option = (t_opm_option *)vector_get(params->config, index);
 		return (option->param);
 	}
 	return (NULL);

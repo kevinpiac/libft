@@ -1,35 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   arm_getparam.c                                     :+:      :+:    :+:   */
+/*   vector_foreach.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/27 13:28:19 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/04/27 13:53:41 by kpiacent         ###   ########.fr       */
+/*   Created: 2016/04/15 20:55:25 by kpiacent          #+#    #+#             */
+/*   Updated: 2016/04/15 21:10:24 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_arm_argument	*arm_getparam(t_vector *arm, int index)
+void	vector_foreach(t_vector *v, void (*f)(void *))
 {
-	int				count;
-	int				i;
-	t_arm_argument	*param;
+	int		i;
 
-	count = 0;
 	i = 0;
-	while (i < arm->total)
+	while (i < v->total)
 	{
-		param = ft_vectget(arm, i);
-		if (arm_isparam(param))
-		{
-			if (count == index)
-				return (param);
-			count++;
-		}
+		f(v->items[i]);
 		i++;
 	}
-	return (NULL);
 }

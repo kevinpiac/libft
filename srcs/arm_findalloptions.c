@@ -1,21 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vectset.c                                       :+:      :+:    :+:   */
+/*   arm_findalloptions.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/15 14:29:56 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/04/15 14:34:43 by kpiacent         ###   ########.fr       */
+/*   Created: 2016/04/27 14:05:00 by kpiacent          #+#    #+#             */
+/*   Updated: 2016/04/27 14:07:53 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_vectset(t_vector *v, void *item, int index)
+t_vector	*arm_findalloptions(t_vector *arm)
 {
-	if (index > 0 && index <= v->total)
+	int				i;
+	t_arm_argument	*arg;
+	t_vector		*options;
+
+	options = vector_new(VECTOR_DEFAULT_CAPACITY);
+	i = 0;
+	while (i < arm->total)
 	{
-		v->items[index] = item;
+		arg = vector_get(arm, i);
+		if (arm_isoption(arg))
+			vector_add(options, arg);
+		i++;
 	}
+	return (options);
 }

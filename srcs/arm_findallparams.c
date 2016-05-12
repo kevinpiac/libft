@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   arm_destroy.c                                      :+:      :+:    :+:   */
+/*   arm_findallparams.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/24 16:26:29 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/02/24 16:26:31 by kpiacent         ###   ########.fr       */
+/*   Created: 2016/04/27 13:59:42 by kpiacent          #+#    #+#             */
+/*   Updated: 2016/04/27 14:07:44 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void		arm_destroy_item(void *this)
+t_vector	*arm_findallparams(t_vector *arm)
 {
-	if ((t_vector *)this)
-		free((t_vector *)this);
-	this = NULL;
-}
+	int				i;
+	t_arm_argument	*arg;
+	t_vector		*params;
 
-void			arm_destroy(t_vector *this)
-{
-	ft_vectdel(this, &arm_destroy_item);
+	params = vector_new(VECTOR_DEFAULT_CAPACITY);
+	i = 0;
+	while (i < arm->total)
+	{
+		arg = vector_get(arm, i);
+		if (arm_isparam(arg))
+			vector_add(params, arg);
+		i++;
+	}
+	return (params);
 }

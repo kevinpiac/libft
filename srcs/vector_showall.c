@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vectadd.c                                       :+:      :+:    :+:   */
+/*   vector_showall.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/14 20:50:33 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/04/15 10:43:19 by kpiacent         ###   ########.fr       */
+/*   Created: 2016/04/15 12:01:48 by kpiacent          #+#    #+#             */
+/*   Updated: 2016/04/15 21:11:30 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_vectadd(t_vector *v, void *item)
+void	vector_showall(t_vector *this)
 {
-	ft_vectresize(v);
-	v->items[v->total] = item;
-	v->total++;
+	vector_foreach(this, (void *)&ft_putendl);
 }

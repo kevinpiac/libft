@@ -1,39 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vectbubblesort.c                                :+:      :+:    :+:   */
+/*   opm_getoption.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/15 14:20:56 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/04/15 14:21:07 by kpiacent         ###   ########.fr       */
+/*   Created: 2016/04/23 14:00:21 by kpiacent          #+#    #+#             */
+/*   Updated: 2016/04/25 16:14:30 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void			ft_vectbubblesort(t_vector *v, int (*cmp)(void *, void *),
-				int order)
+t_opm_option	*opm_getoption(t_opm_params *params, int index)
 {
-	int			i;
-	int			j;
-	void		*tmp;
+	t_opm_option *option;
 
-	i = 0;
-	while (i < v->total)
+	if (params)
 	{
-		j = 0;
-		while (j < v->total - 1)
-		{
-			if ((cmp(v->items[j], v->items[j + 1]) && order == 1) ||
-			(!cmp(v->items[j], v->items[j + 1]) && order == -1))
-			{
-				tmp = v->items[j];
-				v->items[j] = v->items[j + 1];
-				v->items[j + 1] = tmp;
-			}
-			j++;
-		}
-		i++;
+		option = (t_opm_option *)vector_get(params->config, index);
+		return (option);
 	}
+	return (NULL);
 }

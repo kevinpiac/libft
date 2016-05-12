@@ -63,6 +63,6 @@ void				opm_debug(t_opm_params *opm)
 		ft_putnbr(opm->error_code);
 	}
 	ft_putendl(")\n");
-	ft_vectforeach(opm->config, (void *)&opm_putdata);
+	vector_foreach(opm->config, (void *)&opm_putdata);
 	ft_putstr("\n\n");
 }

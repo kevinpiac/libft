@@ -13,7 +13,9 @@
 CC = gcc
 FLAGS = -Wall -Wextra -Werror
 NAME = libft.a
-FILES = ft_putchar.c ft_putchar_fd.c ft_putstr.c \
+INCLUDES = -I includes/
+SRCS_DIR = srcs/
+SRCS = ft_putchar.c ft_putchar_fd.c ft_putstr.c \
 	ft_putstr_fd.c ft_putendl.c ft_putendl_fd.c \
 	ft_putnbr.c ft_putnbr_fd.c \
 \
@@ -45,10 +47,10 @@ FILES = ft_putchar.c ft_putchar_fd.c ft_putstr.c \
 	ft_bitprint.c ft_bitgetfour.c ft_bitsetfour.c \
 	ft_bitgetoctal.c ft_bitsetoctal.c \
 \
-	ft_vectnew.c ft_vectresize.c ft_vectadd.c \
-	ft_vectaddfront.c ft_vectshowall.c ft_vectinsert.c \
-	ft_vectget.c ft_vectset.c ft_vectdelone.c \
-	ft_vectforeach.c ft_vectbubblesort.c ft_vectdel.c \
+	vector_new.c vector_resize.c vector_add.c \
+	vector_addfront.c vector_showall.c vector_insert.c \
+	vector_get.c vector_set.c vector_delone.c \
+	vector_foreach.c vector_bubblesort.c vector_del.c \
 \
 	opm_init.c opm_config_init.c \
 	opm_getoption.c opm_getoption_param.c \
@@ -61,15 +63,18 @@ FILES = ft_putchar.c ft_putchar_fd.c ft_putstr.c \
 	arm_findparam.c arm_findallparams.c arm_findalloptions.c \
 	arm_isparam.c arm_isoption.c arm_destroy.c
 
+FILES_PATH = $(addprefix $(SRCS_DIR), $(SRCS))
+FILES = $(SRCS)
 OBJ = $(FILES:.c=.o)
 TMP = Makefile~ libft.h~ $(NAME)~ $(FILES:.c=.c~)
 
 all : $(NAME)
 
 $(NAME) :
-	@$(CC) $(FLAGS) -c $(FILES) && ar rc $(NAME) $(OBJ)
+	@$(CC) $(FLAGS) -c $(FILES_PATH) $(INCLUDES) && ar rc $(NAME) $(OBJ)
 	@ranlib $(NAME)
 	@echo "Compiling the libft:		DONE!"
+	@rm -rf $(OBJ)
 clean :
 	@rm -f $(OBJ) $(TMP)
 	@echo "Removing all files:		DONE!"

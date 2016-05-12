@@ -1,35 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   arm_debug.c                                        :+:      :+:    :+:   */
+/*   vector_insert.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/25 14:04:05 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/04/28 14:44:56 by kpiacent         ###   ########.fr       */
+/*   Created: 2016/04/15 12:05:38 by kpiacent          #+#    #+#             */
+/*   Updated: 2016/04/15 15:17:55 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void		arm_putdata(t_arm_argument *arg)
+void	vector_insert(t_vector *this, void *item, int index)
 {
-	static	int		i;
+	int		i;
 
-	i = (i ? i : 0);
-	ft_putnbr(i);
-	ft_putstr(" | type -> ");
-	ft_putstr(arg->type);
-	ft_putstr("	| name -> ");
-	ft_putendl(arg->name);
-	i++;
-}
-
-void			arm_debug(t_vector *arm)
-{
-	ft_putstr("\n\nARM __total__(");
-	ft_putnbr(arm->total);
-	ft_putendl(")\n");
-	ft_vectforeach(arm, (void *)&arm_putdata);
-	ft_putstr("\n\n");
+	vector_resize(this);
+	i = this->total + 1;
+	while (i && i > index)
+	{
+		this->items[i] = this->items[i - 1];
+		i--;
+	}
+	this->items[i] = item;
+	this->total++;
 }

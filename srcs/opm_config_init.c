@@ -37,7 +37,7 @@ static void		opm_option_add(t_vector *config, char *option_name)
 		ft_delsplit(aliases);
 		option->aliases = NULL;
 	}
-	ft_vectadd(config, option);
+	vector_add(config, option);
 }
 
 t_vector		*opm_config_init(char *config_instruct)
@@ -48,7 +48,7 @@ t_vector		*opm_config_init(char *config_instruct)
 
 	i = 0;
 	conf = ft_strsplit(config_instruct, ',');
-	config = ft_vectnew();
+	config = vector_new(VECTOR_DEFAULT_CAPACITY);
 	while (conf[i])
 	{
 		opm_option_add(config, conf[i]);

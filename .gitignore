@@ -5,6 +5,6 @@
 *~
 *#
 *.o
-*.out
+*.out*
 *.a
 main.c

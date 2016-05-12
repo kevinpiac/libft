@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   arm_findalloptions.c                               :+:      :+:    :+:   */
+/*   arm_destroy.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/27 14:05:00 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/04/27 14:07:53 by kpiacent         ###   ########.fr       */
+/*   Created: 2016/02/24 16:26:29 by kpiacent          #+#    #+#             */
+/*   Updated: 2016/02/24 16:26:31 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_vector	*arm_findalloptions(t_vector *arm)
+static void		arm_destroy_item(void *this)
 {
-	int				i;
-	t_arm_argument	*arg;
-	t_vector		*options;
+	if ((t_vector *)this)
+		free((t_vector *)this);
+	this = NULL;
+}
 
-	options = ft_vectnew();
-	i = 0;
-	while (i < arm->total)
-	{
-		arg = ft_vectget(arm, i);
-		if (arm_isoption(arg))
-			ft_vectadd(options, arg);
-		i++;
-	}
-	return (options);
+void			arm_destroy(t_vector *this)
+{
+	vector_del(this, &arm_destroy_item);
 }

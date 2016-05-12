@@ -39,5 +39,5 @@ void			opm_config_destroy(t_vector *this)
 {
 	if (!this)
 		return ;
-	ft_vectdel(this, &opm_config_destroy_item);
+	vector_del(this, &opm_config_destroy_item);
 }

@@ -1,30 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vectdel.c                                       :+:      :+:    :+:   */
+/*   arm_getparam.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/15 14:20:56 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/04/15 14:21:07 by kpiacent         ###   ########.fr       */
+/*   Created: 2016/04/27 13:28:19 by kpiacent          #+#    #+#             */
+/*   Updated: 2016/04/27 13:53:41 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void			ft_vectdel(t_vector *this, void (*del_fn)(void *))
+t_arm_argument	*arm_getparam(t_vector *arm, int index)
 {
-	int			i;
+	int				count;
+	int				i;
+	t_arm_argument	*param;
 
+	count = 0;
 	i = 0;
-	if (!this)
-		return ;
-	while (i < this->total)
+	while (i < arm->total)
 	{
-		del_fn(this->items[i]);
+		param = vector_get(arm, i);
+		if (arm_isparam(param))
+		{
+			if (count == index)
+				return (param);
+			count++;
+		}
 		i++;
 	}
-	if (this->items)
-		free(this->items);
-	free(this);
+	return (NULL);
 }
