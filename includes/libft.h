@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <errno.h>
 # define ABS(x) ((x > 0) ? x : -x)
+# define GNL_BUFF_SIZE 100
 # include "opm_config.h"
 
 typedef	enum
@@ -136,6 +137,20 @@ void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstaddback(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+
+/*
+** GET NEXT line
+*/
+
+typedef	struct		s_gnl
+{
+	void			*content;
+	size_t			content_size;
+	struct s_gnl	*next;
+	int				fd;
+}					t_gnl;
+
+int					get_next_line(int fd, char **line);
 
 /*
 ** BIT OPERATIONS

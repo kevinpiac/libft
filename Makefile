@@ -47,6 +47,8 @@ SRCS = ft_putchar.c ft_putchar_fd.c ft_putstr.c \
 	ft_bitprint.c ft_bitgetfour.c ft_bitsetfour.c \
 	ft_bitgetoctal.c ft_bitsetoctal.c \
 \
+	get_next_line.c \
+\
 	vector_new.c vector_resize.c vector_add.c \
 	vector_addfront.c vector_showall.c vector_insert.c \
 	vector_get.c vector_set.c vector_delone.c \

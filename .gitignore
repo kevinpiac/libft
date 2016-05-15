@@ -1,10 +1,33 @@
-####################
-# UNTRACKED FILES
-####################
-
-*~
-*#
+# Object files
 *.o
-*.out*
+*.ko
+*.obj
+*.elf
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Libraries
+*.lib
 *.a
-main.c
+*.la
+*.lo
+
+# Shared objects (inc. Windows DLLs)
+*.dll
+*.so
+*.so.*
+*.dylib
+
+# Executables
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
+*.libft.a
+
+# Debug files
+*.dSYM/
