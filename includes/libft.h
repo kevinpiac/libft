@@ -191,7 +191,7 @@ char				*ft_strnstr(const char *big, const char *little, size_t n);
 char				*ft_strchr(const char *s, int c);
 char				*ft_strrchr(const char *s, int c);
 char				*ft_strsub(const char *s, unsigned int start, size_t len);
-char				*ft_strreplace(const char *str, const char *to, char *by);
+
 /*
 ** STR / CHAR BOOLEAN ?
 */
@@ -224,9 +224,11 @@ char				*ft_strcpy(char *dest, const char *src);
 char				*ft_strncpy(char *dest, const char *src, size_t n);
 char				*ft_strjoin(const char *s1, const char *s2);
 char				*ft_strtrim(const char *s);
+char				*ft_strreplace(const char *str, const char *to, char *by);
 
 char				**ft_strsplit(char const *s, char c);
 void				ft_delsplit(char **splited);
+int					ft_splitcount(char **splited);
 
 /*
 ** MEMORY ALLOCATION / MANIPULATION
