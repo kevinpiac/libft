@@ -185,13 +185,13 @@ void				ft_putnbr_fd(int n, int fd);
 size_t				ft_strlen(const char *s);
 int					ft_strcmp(const char *s1, const char *s2);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
-
+int					ft_strindex(const char *str, const char *to_find);
 char				*ft_strstr(const char *big, const char *little);
 char				*ft_strnstr(const char *big, const char *little, size_t n);
 char				*ft_strchr(const char *s, int c);
 char				*ft_strrchr(const char *s, int c);
 char				*ft_strsub(const char *s, unsigned int start, size_t len);
-
+char				*ft_strreplace(const char *str, const char *to, char *by);
 /*
 ** STR / CHAR BOOLEAN ?
 */

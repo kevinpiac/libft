@@ -27,7 +27,8 @@ SRCS = ft_putchar.c ft_putchar_fd.c ft_putstr.c \
 	ft_strsub.c ft_strmap.c ft_strmapi.c \
 	ft_strsplit.c ft_toupper.c ft_tolower.c \
 	ft_atoi.c ft_itoa.c ft_strcat.c \
-	ft_strncat.c ft_delsplit.c \
+	ft_strncat.c ft_delsplit.c ft_strindex.c \
+	ft_strreplace.c \
 \
 	ft_islower.c ft_isupper.c ft_isalpha.c \
 	ft_isdigit.c ft_isalnum.c ft_isprint.c \
