@@ -70,6 +70,7 @@ void				arm_destroy(t_vector *this);
 t_arm_argument		*arm_getparam(t_vector *arm, int index);
 char				*arm_getparam_name(t_vector *arm, int index);
 char				*arm_getparam_type(t_vector *arm, int index);
+char				*arm_tostr(t_vector *arm);
 
 t_arm_argument		*arm_findparam(t_vector *arm, char *name);
 t_vector			*arm_findallparams(t_vector *arm);

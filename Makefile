@@ -64,7 +64,8 @@ SRCS = ft_putchar.c ft_putchar_fd.c ft_putstr.c \
 	arm_argument_new.c arm_init.c arm_debug.c \
 	arm_getparam.c arm_getparam_name.c arm_getparam_type.c \
 	arm_findparam.c arm_findallparams.c arm_findalloptions.c \
-	arm_isparam.c arm_isoption.c arm_destroy.c
+	arm_isparam.c arm_isoption.c arm_destroy.c \
+	arm_tostr.c
 
 FILES_PATH = $(addprefix $(SRCS_DIR), $(SRCS))
 FILES = $(SRCS)
