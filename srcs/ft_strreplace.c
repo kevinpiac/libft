@@ -26,10 +26,7 @@ char			*ft_strreplace(const char *str, const char *to, char *by)
 	begin = ft_strindex(str, to);
 	s = ft_strnew(ft_strlen(str) - to_len + ft_strlen(by));
 	ft_strncpy(s, str, begin);
-	ft_putendl(s);
 	ft_strcat(s, by);
-	ft_putendl(s);
 	ft_strcat(s, &str[begin + to_len]);
-	ft_putendl(s);
 	return (s);
 }
