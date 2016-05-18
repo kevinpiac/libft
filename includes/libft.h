@@ -51,6 +51,7 @@ void				vector_delone(t_vector *this, int index);
 void				vector_foreach(t_vector *this, void (*f)(void *));
 void				vector_bubblesort(t_vector *this, int (*cmp)(void *, void *),
 							int order);
+char				**vector_totab(t_vector *this);
 
 /*
 ** ARGUMENTS MANAGER
