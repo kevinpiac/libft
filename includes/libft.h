@@ -18,6 +18,7 @@
 # define ABS(x) ((x > 0) ? x : -x)
 # define GNL_BUFF_SIZE 100
 # include "opm_config.h"
+# include "error_config.h"
 
 typedef	enum
 {
@@ -260,5 +261,11 @@ void				ft_striteri(char *s, void (*f)(unsigned int, char *));
 
 char				*ft_strmap(char const *s, char(*f)(char));
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+
+/*
+** ERROR HANDLER
+*/
+
+void				error_print(int error_type, char *cmd, char *error_details);
 
 #endif
