@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vectshowall.c                                   :+:      :+:    :+:   */
+/*   vector_get.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/15 12:01:48 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/04/15 21:11:30 by kpiacent         ###   ########.fr       */
+/*   Created: 2016/04/15 14:20:56 by kpiacent          #+#    #+#             */
+/*   Updated: 2016/04/15 14:21:07 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_vectshowall(t_vector *v)
+void	*vector_get(t_vector *v, int index)
 {
-	ft_vectforeach(v, (void *)&ft_putendl);
+	if (!v || index > v->total)
+		return (NULL);
+	return (v->items[index]);
 }

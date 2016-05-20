@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vectforeach.c                                   :+:      :+:    :+:   */
+/*   vector_resize.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/15 20:55:25 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/04/15 21:10:24 by kpiacent         ###   ########.fr       */
+/*   Created: 2016/04/15 09:56:05 by kpiacent          #+#    #+#             */
+/*   Updated: 2016/04/15 10:44:20 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_vectforeach(t_vector *v, void *(*f)(void *))
+void			vector_resize(t_vector *this)
 {
-	int		i;
+	void			**new;
 
-	i = 0;
-	while (i < v->total)
+	if (this->total >= this->capacity)
 	{
-		f(v->items[i]);
-		i++;
+		if (!(new = (void **)malloc(sizeof(void *) * (this->capacity * 2))))
+			return ;
+		ft_memcpy(new, this->items, (this->capacity * sizeof(void *)));
+		free(this->items);
+		this->capacity *= 2;
+		this->items = new;
 	}
 }

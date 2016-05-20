@@ -1,20 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vectget.c                                       :+:      :+:    :+:   */
+/*   opm_config_destroy.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/15 14:20:56 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/04/15 14:21:07 by kpiacent         ###   ########.fr       */
+/*   Created: 2016/02/24 16:26:29 by kpiacent          #+#    #+#             */
+/*   Updated: 2016/02/24 16:26:31 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_vectget(t_vector *v, int index)
+static void		opm_config_destroy_item(void *item)
 {
-	if (!v || index > v->total)
-		return (NULL);
-	return (v->items[index]);
+	t_opm_option	*this;
+	int				i;
+
+	i = 0;
+	this = (t_opm_option *)item;
+	if (!this)
+		return ;
+	if (this->aliases)
+	{
+		while (this->aliases[i])
+		{
+			free(this->aliases[i]);
+			i++;
+		}
+	}
+	if (this->name)
+		free(this->name);
+	free(this);
+	this = NULL;
+}
+
+void			opm_config_destroy(t_vector *this)
+{
+	if (!this)
+		return ;
+	vector_del(this, &opm_config_destroy_item);
 }

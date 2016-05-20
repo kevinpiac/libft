@@ -1,25 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vectresize.c                                    :+:      :+:    :+:   */
+/*   opm_findoption.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/15 09:56:05 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/04/15 10:44:20 by kpiacent         ###   ########.fr       */
+/*   Created: 2016/04/23 14:32:49 by kpiacent          #+#    #+#             */
+/*   Updated: 2016/04/26 15:36:18 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_vectresize(t_vector *v)
+t_opm_option	*opm_findoption(t_vector *options, char *name)
 {
-	int			newcapacity;
+	t_opm_option	*option;
+	int				i;
+	int				j;
 
-	if (v->total >= v->capacity)
+	i = 0;
+	while (i < options->total)
 	{
-		newcapacity = v->capacity + VECTOR_CAPACITY;
-		v->items = realloc(v->items, newcapacity);//ft_realloc(v->items, v->capacity, newcapacity);
-		v->capacity = newcapacity;
+		option = vector_get(options, i);
+		if (ft_strequ(name, option->name))
+			return (option);
+		else if (option->aliases)
+		{
+			j = 0;
+			while (option->aliases[j])
+			{
+				if (ft_strequ(name, option->aliases[j]))
+					return (option);
+				j++;
+			}
+		}
+		i++;
 	}
+	return (NULL);
 }

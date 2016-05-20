@@ -1,19 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vectaddfront.c                                  :+:      :+:    :+:   */
+/*   opm_getoption.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/15 09:49:54 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/04/15 14:00:14 by kpiacent         ###   ########.fr       */
+/*   Created: 2016/04/23 14:00:21 by kpiacent          #+#    #+#             */
+/*   Updated: 2016/04/25 16:14:30 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_vectaddfront(t_vector *v, void *item)
+t_opm_option	*opm_getoption(t_opm_params *params, int index)
 {
-	ft_vectresize(v);
-	ft_vectinsert(v, item, 0);
+	t_opm_option *option;
+
+	if (params)
+	{
+		option = (t_opm_option *)vector_get(params->config, index);
+		return (option);
+	}
+	return (NULL);
 }

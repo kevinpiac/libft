@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/03 10:37:12 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/04/23 19:14:05 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/04/28 14:37:01 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,22 @@
 # define LIBFT_H
 # include <unistd.h>
 # include <stdlib.h>
+# include <errno.h>
 # define ABS(x) ((x > 0) ? x : -x)
+# define GNL_BUFF_SIZE 100
+# include "opm_config.h"
+
+typedef	enum
+{
+	false,
+	true
+}	t_bool;
 
 /*
 ** VECTORS
 */
-# define VECTOR_CAPACITY 10
+
+# define VECTOR_DEFAULT_CAPACITY 10
 
 typedef struct		s_vector
 {
@@ -28,16 +38,85 @@ typedef struct		s_vector
 	int				total;
 }					t_vector;
 
-t_vector			*ft_vectnew(void);
-void				*ft_vectget(t_vector *v, int index);
-void				ft_vectset(t_vector *v, void *item, int index);
-void				ft_vectadd(t_vector *v, void *item);
-void				ft_vectaddfront(t_vector *v, void *item);
-void				ft_vectresize(t_vector *v);
-void				ft_vectshowall(t_vector *v);
-void				ft_vectinsert(t_vector *v, void *item, int index);
-void				ft_vectdelone(t_vector *v, int index);
-void				ft_vectforeach(t_vector *v, void *(*f)(void *));
+t_vector			*vector_new(size_t capacity);
+void				vector_del(t_vector *this, void(del_fn)(void *));
+void				*vector_get(t_vector *this, int index);
+void				vector_set(t_vector *this, void *item, int index);
+void				vector_add(t_vector *this, void *item);
+void				vector_addfront(t_vector *this, void *item);
+void				vector_resize(t_vector *this);
+void				vector_showall(t_vector *this);
+void				vector_insert(t_vector *this, void *item, int index);
+void				vector_delone(t_vector *this, int index);
+void				vector_foreach(t_vector *this, void (*f)(void *));
+void				vector_bubblesort(t_vector *this, int (*cmp)(void *, void *),
+							int order);
+char				**vector_totab(t_vector *this);
+
+/*
+** ARGUMENTS MANAGER
+*/
+
+typedef struct		s_arm_argument
+{
+	char			*type;
+	char			*name;
+}					t_arm_argument;
+
+t_arm_argument		*arm_argument_new(char *name, char *type);
+t_vector			*arm_init(int ac, char **av);
+void				arm_debug(t_vector *arm);
+void				arm_destroy(t_vector *this);
+
+t_arm_argument		*arm_getparam(t_vector *arm, int index);
+char				*arm_getparam_name(t_vector *arm, int index);
+char				*arm_getparam_type(t_vector *arm, int index);
+char				*arm_tostr(t_vector *arm);
+
+t_arm_argument		*arm_findparam(t_vector *arm, char *name);
+t_vector			*arm_findallparams(t_vector *arm);
+t_vector			*arm_findalloptions(t_vector *arm);
+
+t_bool				arm_isparam(t_arm_argument *arg);
+t_bool				arm_isoption(t_arm_argument *arg);
+
+/*
+** PROGRAM'S OPTIONS MANAGER
+*/
+
+typedef struct		s_opm_option
+{
+	char			*name;
+	char			**aliases;
+	char			*param;
+	t_bool			req_params;
+	t_bool			is_set;
+}					t_opm_option;
+
+typedef struct		s_opm_params
+{
+	t_vector		*config;
+	t_vector		*params;
+	int				total_set;
+	t_bool			error;
+	int				error_code;
+}					t_opm_params;
+
+t_vector			*opm_config_init(char *config);
+void				opm_config_destroy(t_vector *this);
+
+t_opm_params		*opm_init(t_vector *arm, t_vector *config);
+void				opm_destroy(t_opm_params *this);
+
+void				opm_debug(t_opm_params *opm);
+void				opm_error(const char *error_description);
+t_opm_option		*opm_getoption(t_opm_params *params, int index);
+char				*opm_getoption_param(t_opm_params *params, int index);
+
+t_opm_option		*opm_findoption(t_vector *options, char *name);
+char				*opm_findoption_param(t_vector *options, char *name);
+
+t_bool				opm_issetoption(t_vector *option, char *name);
 
 /*
 ** LINKED LISTS
@@ -60,6 +139,20 @@ void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstaddback(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+
+/*
+** GET NEXT line
+*/
+
+typedef	struct		s_gnl
+{
+	void			*content;
+	size_t			content_size;
+	struct s_gnl	*next;
+	int				fd;
+}					t_gnl;
+
+int					get_next_line(int fd, char **line);
 
 /*
 ** BIT OPERATIONS
@@ -94,7 +187,7 @@ void				ft_putnbr_fd(int n, int fd);
 size_t				ft_strlen(const char *s);
 int					ft_strcmp(const char *s1, const char *s2);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
-
+int					ft_strindex(const char *str, const char *to_find);
 char				*ft_strstr(const char *big, const char *little);
 char				*ft_strnstr(const char *big, const char *little, size_t n);
 char				*ft_strchr(const char *s, int c);
@@ -104,12 +197,6 @@ char				*ft_strsub(const char *s, unsigned int start, size_t len);
 /*
 ** STR / CHAR BOOLEAN ?
 */
-
-typedef	enum
-{
-	false,
-	true
-}	t_bool;
 
 int					ft_islower(int c);
 int					ft_isupper(int c);
@@ -139,8 +226,11 @@ char				*ft_strcpy(char *dest, const char *src);
 char				*ft_strncpy(char *dest, const char *src, size_t n);
 char				*ft_strjoin(const char *s1, const char *s2);
 char				*ft_strtrim(const char *s);
+char				*ft_strreplace(const char *str, const char *to, char *by);
 
 char				**ft_strsplit(char const *s, char c);
+void				ft_delsplit(char **splited);
+int					ft_splitcount(char **splited);
 
 /*
 ** MEMORY ALLOCATION / MANIPULATION

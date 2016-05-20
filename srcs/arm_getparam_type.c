@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vectadd.c                                       :+:      :+:    :+:   */
+/*   arm_getparam_type.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/14 20:50:33 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/04/15 10:43:19 by kpiacent         ###   ########.fr       */
+/*   Created: 2016/04/27 13:34:00 by kpiacent          #+#    #+#             */
+/*   Updated: 2016/04/27 13:34:17 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_vectadd(t_vector *v, void *item)
+char	*arm_getparam_type(t_vector *arm, int index)
 {
-	ft_vectresize(v);
-	v->items[v->total] = item;
-	v->total++;
+	t_arm_argument *param;
+
+	param = arm_getparam(arm, index);
+	if (param)
+		return (param->type);
+	return (NULL);
 }

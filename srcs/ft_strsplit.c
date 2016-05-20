@@ -5,61 +5,67 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/26 14:19:21 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/03/04 13:58:40 by kpiacent         ###   ########.fr       */
+/*   Created: 2016/02/24 16:26:29 by kpiacent          #+#    #+#             */
+/*   Updated: 2016/02/24 16:26:31 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-static size_t	wordcount(char const *s, int c)
+static size_t	countstr(char const *s, char c)
 {
-	size_t	i;
+	size_t		count;
+	size_t		word;
 
-	i = 0;
+	count = 0;
+	word = 0;
 	while (*s)
 	{
-		if (*s != c && (i == 0 || *(s - 1) == c))
-			i++;
+		if (word == 1 && *s == c)
+			word = 0;
+		if (word == 0 && *s != c)
+		{
+			word = 1;
+			count++;
+		}
 		s++;
 	}
-	return (i);
+	return (count);
 }
 
-static size_t	wordlen(char const *s, int c)
+static size_t	wordlen(char const *s, char c)
 {
-	size_t	i;
+	size_t		count;
 
-	i = 0;
-	while (s[i] && s[i] != c)
-		i++;
-	return (i);
+	count = 0;
+	while (*s != c && *s)
+	{
+		count++;
+		s++;
+	}
+	return (count);
 }
 
 char			**ft_strsplit(char const *s, char c)
 {
-	char	**tab;
-	char	**tabcpy;
-	size_t	len;
+	char			**str;
+	size_t			n;
+	unsigned int	i;
 
-	if (!(tab = (char **)ft_memalloc(sizeof(char *) * wordcount(s, c) + 1)))
+	n = countstr(s, c);
+	if (!(str = (char **)malloc(sizeof(char *) * (n + 1))))
 		return (NULL);
-	tabcpy = tab;
-	while (*s)
+	i = 0;
+	while (n--)
 	{
-		while (*s == c)
+		while (*s == c && *s)
 			s++;
-		if (*s)
-		{
-			len = wordlen(s, c);
-			if (!(*tabcpy = ft_strnew(len)))
-				return (NULL);
-			ft_strncpy(*tabcpy, s, len);
-			s = (s + len);
-			tabcpy++;
-		}
+		str[i] = ft_strsub(s, 0, wordlen(s, c));
+		if (!str[i])
+			return (NULL);
+		s += wordlen(s, c);
+		i++;
 	}
-	*tabcpy = NULL;
-	return (tab);
+	str[i] = NULL;
+	return (str);
 }

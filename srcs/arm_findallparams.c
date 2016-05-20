@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vectnew.c                                       :+:      :+:    :+:   */
+/*   arm_findallparams.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/14 20:07:27 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/04/14 22:30:17 by kpiacent         ###   ########.fr       */
+/*   Created: 2016/04/27 13:59:42 by kpiacent          #+#    #+#             */
+/*   Updated: 2016/04/27 14:07:44 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_vector	*ft_vectnew(void)
+t_vector	*arm_findallparams(t_vector *arm)
 {
-	t_vector	*vector;
+	int				i;
+	t_arm_argument	*arg;
+	t_vector		*params;
 
-	if (!(vector = ft_memalloc(sizeof(t_vector) * VECTOR_CAPACITY)))
-		return (NULL);
-	if (!(vector->items = ft_memalloc(sizeof(void *) * VECTOR_CAPACITY)))
-		return (NULL);
-	vector->total = 0;
-	vector->capacity = VECTOR_CAPACITY;
-	return (vector);
+	params = vector_new(VECTOR_DEFAULT_CAPACITY);
+	i = 0;
+	while (i < arm->total)
+	{
+		arg = vector_get(arm, i);
+		if (arm_isparam(arg))
+			vector_add(params, arg);
+		i++;
+	}
+	return (params);
 }

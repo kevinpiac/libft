@@ -1,28 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vectinsert.c                                    :+:      :+:    :+:   */
+/*   vector_addfront                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/15 12:05:38 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/04/15 15:17:55 by kpiacent         ###   ########.fr       */
+/*   Created: 2016/04/15 09:49:54 by kpiacent          #+#    #+#             */
+/*   Updated: 2016/04/15 14:00:14 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_vectinsert(t_vector *v, void *item, int index)
+void	vector_addfront(t_vector *this, void *item)
 {
-	int		i;
-
-	ft_vectresize(v);
-	i = v->total + 1;
-	while (i && i > index)
-	{
-		v->items[i] = v->items[i - 1];
-		i--;
-	}
-	v->items[i] = item;
-	v->total++;
+	vector_resize(this);
+	vector_insert(this, item, 0);
 }
