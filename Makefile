@@ -68,7 +68,9 @@ SRCS = ft_putchar.c ft_putchar_fd.c ft_putstr.c \
 	arm_isparam.c arm_isoption.c arm_destroy.c \
 	arm_tostr.c \
 \
-	error_print.c
+	error_print.c \
+\
+	is_dir.c is_lnk.c is_reg.c
 
 FILES_PATH = $(addprefix $(SRCS_DIR), $(SRCS))
 FILES = $(SRCS)

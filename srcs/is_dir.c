@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strindex.c                                      :+:      :+:    :+:   */
+/*   is_dir.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,28 +12,11 @@
 
 #include "libft.h"
 
-int			ft_strindex(const char *big, const char *little)
+t_bool			is_dir(const char *path)
 {
-	const char			*bigcp;
-	const char			*littlecp;
-	int					i;
+	struct stat	*stat;
 
-	i = 0;
-	if (!ft_strlen(little) || !little)
-		return (i);
-	while (*big)
-	{
-		bigcp = big;
-		littlecp = little;
-		while (*bigcp == *littlecp)
-		{
-			bigcp++;
-			littlecp++;
-			if (!*littlecp)
-				return (i);
-		}
-		big++;
-		i++;
-	}
-	return (i);
+	stat = (struct stat *)ft_memalloc(sizeof(struct stat) * 1);
+	lstat(path, stat);
+	return (S_ISDIR(stat->st_mode));
 }

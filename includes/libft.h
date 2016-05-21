@@ -19,6 +19,7 @@
 # define GNL_BUFF_SIZE 100
 # include "opm_config.h"
 # include "error_config.h"
+# include <sys/stat.h>
 
 typedef	enum
 {
@@ -50,8 +51,8 @@ void				vector_showall(t_vector *this);
 void				vector_insert(t_vector *this, void *item, int index);
 void				vector_delone(t_vector *this, int index);
 void				vector_foreach(t_vector *this, void (*f)(void *));
-void				vector_bubblesort(t_vector *this, int (*cmp)(void *, void *),
-							int order);
+void				vector_bubblesort(t_vector *this,
+						int (*cmp)(void *, void *), int order);
 char				**vector_totab(t_vector *this);
 
 /*
@@ -267,5 +268,13 @@ char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 */
 
 void				error_print(int error_type, char *cmd, char *error_details);
+
+/*
+** DIRECTORY / FILES / LINKS
+*/
+
+t_bool				is_dir(const char *path);
+t_bool				is_reg(const char *path);
+t_bool				is_lnk(const char *path);
 
 #endif
