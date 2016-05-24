@@ -12,17 +12,16 @@
 
 #include "libft.h"
 
-void	vector_delone(t_vector *v, int index)
+void	vector_delone(t_vector *v, int index, void (*f)(void *))
 {
 	int		i;
 
 	if (index > v->total)
 		return ;
-	if (index == v->total)
-		v->items[index] = NULL;
 	else
 	{
 		i = index;
+		f(v->items[index]);
 		while (i < v->total - 1)
 		{
 			v->items[i] = v->items[i + 1];

@@ -42,6 +42,8 @@ typedef struct		s_vector
 
 t_vector			*vector_new(size_t capacity);
 void				vector_del(t_vector *this, void(del_fn)(void *));
+void				vector_delone(t_vector *this, int index, void (*f)(void *));
+void				vector_clear(t_vector *this, void (*f)(void *));
 void				*vector_get(t_vector *this, int index);
 void				vector_set(t_vector *this, void *item, int index);
 void				vector_add(t_vector *this, void *item);
@@ -49,7 +51,6 @@ void				vector_addfront(t_vector *this, void *item);
 void				vector_resize(t_vector *this);
 void				vector_showall(t_vector *this);
 void				vector_insert(t_vector *this, void *item, int index);
-void				vector_delone(t_vector *this, int index);
 void				vector_foreach(t_vector *this, void (*f)(void *));
 void				vector_bubblesort(t_vector *this,
 						int (*cmp)(void *, void *), int order);

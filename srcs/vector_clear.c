@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vector_del.c                                       :+:      :+:    :+:   */
+/*   vector_clear.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,10 +12,17 @@
 
 #include "libft.h"
 
-void			vector_del(t_vector *this, void (*del_fn)(void *))
+void			vector_clear(t_vector *this, void (*del_fn)(void *))
 {
-	vector_clear(this, del_fn);
-	if (this->items)
-		free(this->items);
-	free(this);
+	int			i;
+
+	i = this->total;
+	if (!this)
+		return ;
+	while (i >= 0)
+	{
+		del_fn(this->items[i]);
+		i--;
+		i == 0 ? this->total : this->total--;
+	}
 }

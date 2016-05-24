@@ -54,7 +54,7 @@ SRCS = ft_putchar.c ft_putchar_fd.c ft_putstr.c \
 	vector_addfront.c vector_showall.c vector_insert.c \
 	vector_get.c vector_set.c vector_delone.c \
 	vector_foreach.c vector_bubblesort.c vector_del.c \
-	vector_totab.c \
+	vector_totab.c vector_clear.c \
 \
 	opm_init.c opm_config_init.c \
 	opm_getoption.c opm_getoption_param.c \
