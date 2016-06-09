@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vector_del.c                                       :+:      :+:    :+:   */
+/*   error_config.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/15 14:20:56 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/04/15 14:21:07 by kpiacent         ###   ########.fr       */
+/*   Created: 2016/02/03 10:37:12 by kpiacent          #+#    #+#             */
+/*   Updated: 2016/04/28 14:37:01 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void			vector_del(t_vector *this, void (*del_fn)(void *))
-{
-	vector_clear(this, del_fn);
-	if (this->items)
-		free(this->items);
-	free(this);
-}
+#ifndef ERROR_CONFIG_H
+# define ERROR_CONFIG_H
+# define ERROR_DEFAULT_MSG "An error has been detected."
+# define ERROR_PROGNAME "add_your_progname_here"
+# define ERROR_USAGE "usage: [your custom usage] [here...]"
+#endif

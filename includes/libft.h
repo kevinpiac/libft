@@ -18,6 +18,8 @@
 # define ABS(x) ((x > 0) ? x : -x)
 # define GNL_BUFF_SIZE 100
 # include "opm_config.h"
+# include "error_config.h"
+# include <sys/stat.h>
 
 typedef	enum
 {
@@ -40,6 +42,8 @@ typedef struct		s_vector
 
 t_vector			*vector_new(size_t capacity);
 void				vector_del(t_vector *this, void(del_fn)(void *));
+void				vector_delone(t_vector *this, int index, void (*f)(void *));
+void				vector_clear(t_vector *this, void (*f)(void *));
 void				*vector_get(t_vector *this, int index);
 void				vector_set(t_vector *this, void *item, int index);
 void				vector_add(t_vector *this, void *item);
@@ -47,10 +51,9 @@ void				vector_addfront(t_vector *this, void *item);
 void				vector_resize(t_vector *this);
 void				vector_showall(t_vector *this);
 void				vector_insert(t_vector *this, void *item, int index);
-void				vector_delone(t_vector *this, int index);
 void				vector_foreach(t_vector *this, void (*f)(void *));
-void				vector_bubblesort(t_vector *this, int (*cmp)(void *, void *),
-							int order);
+void				vector_bubblesort(t_vector *this,
+						int (*cmp)(void *, void *), int order);
 char				**vector_totab(t_vector *this);
 
 /*
@@ -260,5 +263,19 @@ void				ft_striteri(char *s, void (*f)(unsigned int, char *));
 
 char				*ft_strmap(char const *s, char(*f)(char));
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+
+/*
+** ERROR HANDLER
+*/
+
+void				error_print(int error_type, char *cmd, char *error_details);
+
+/*
+** DIRECTORY / FILES / LINKS
+*/
+
+t_bool				is_dir(const char *path);
+t_bool				is_reg(const char *path);
+t_bool				is_lnk(const char *path);
 
 #endif

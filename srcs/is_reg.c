@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vector_del.c                                       :+:      :+:    :+:   */
+/*   is_reg.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/15 14:20:56 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/04/15 14:21:07 by kpiacent         ###   ########.fr       */
+/*   Created: 2016/04/25 13:33:43 by kpiacent          #+#    #+#             */
+/*   Updated: 2016/04/25 14:00:21 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void			vector_del(t_vector *this, void (*del_fn)(void *))
+t_bool			is_reg(const char *path)
 {
-	vector_clear(this, del_fn);
-	if (this->items)
-		free(this->items);
-	free(this);
+	struct stat	*stat;
+
+	stat = (struct stat *)ft_memalloc(sizeof(struct stat) * 1);
+	lstat(path, stat);
+	return (S_ISREG(stat->st_mode));
 }

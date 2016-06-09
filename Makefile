@@ -54,7 +54,7 @@ SRCS = ft_putchar.c ft_putchar_fd.c ft_putstr.c \
 	vector_addfront.c vector_showall.c vector_insert.c \
 	vector_get.c vector_set.c vector_delone.c \
 	vector_foreach.c vector_bubblesort.c vector_del.c \
-	vector_totab.c \
+	vector_totab.c vector_clear.c \
 \
 	opm_init.c opm_config_init.c \
 	opm_getoption.c opm_getoption_param.c \
@@ -66,7 +66,11 @@ SRCS = ft_putchar.c ft_putchar_fd.c ft_putstr.c \
 	arm_getparam.c arm_getparam_name.c arm_getparam_type.c \
 	arm_findparam.c arm_findallparams.c arm_findalloptions.c \
 	arm_isparam.c arm_isoption.c arm_destroy.c \
-	arm_tostr.c
+	arm_tostr.c \
+\
+	error_print.c \
+\
+	is_dir.c is_lnk.c is_reg.c
 
 FILES_PATH = $(addprefix $(SRCS_DIR), $(SRCS))
 FILES = $(SRCS)

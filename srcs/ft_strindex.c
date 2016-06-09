@@ -14,9 +14,9 @@
 
 int			ft_strindex(const char *big, const char *little)
 {
-	const char 	*bigcp;
-	const char 	*littlecp;
-	int			i;
+	const char			*bigcp;
+	const char			*littlecp;
+	int					i;
 
 	i = 0;
 	if (!ft_strlen(little) || !little)
